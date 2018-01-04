@@ -17,7 +17,7 @@ import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
 public class StatResediv {
     private Connection connection;
 
-    private static final int threadCount = 4;
+    private static final int threadCount = 3;
 
     public List<ApOVDStat> FilterStat(String article, java.sql.Date d1, java.sql.Date d2) {
 
