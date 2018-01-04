@@ -1,0 +1,13 @@
+<?xml version ="1.0" encoding ="utf-8" ?>
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+<locale-charset-info default-locale="">
+<locale-charset-map locale="" charset=""/>
+<parameter-encoding default-charset="UTF-8"/>
+</locale-charset-info>
+
+    <session-config>
+    <session-timeout>900</session-timeout>
+</session-config>
+</web-app>

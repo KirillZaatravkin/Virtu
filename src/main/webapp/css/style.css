@@ -1,0 +1,132 @@
+#body {
+    font-family: verdana;
+}
+
+#header {
+
+    background-color: #0023ff;
+    overflow: hidden;
+
+
+}
+
+#navbar {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 180px;
+    position: absolute;
+    float: left;
+    display: block;
+
+}
+
+#kol {
+    width: 500px;
+    height: 200px;
+    border: inset;
+    border-top:1px solid rgba(255, 255, 255, 0);
+    border-bottom:1px solid rgba(255, 255, 255, 0);
+    border-left:1px solid #666;
+    border-right:1px solid #999;
+}
+#left_kol{
+    float: left;
+    width: 200px;
+
+}
+
+#right_kol{
+    float: right;
+    width: 200px;
+
+}
+
+#navbar li {
+    border-left: 10px solid #666;
+    border-bottom: 1px solid #666;
+}
+#navbar a {
+    background-color: #949494;
+    color: #2b009e;
+    padding: 5px;
+    text-decoration: none;
+    font-size: medium;
+    font-weight: bold;
+    border-left: 5px solid #e01e0a;
+    display: block;
+}
+#navbar a:hover {
+    background-color: azure;
+    border-left: 5px solid #1e0312;
+    color: #1e0312;
+}
+
+#h1, #h2 {
+    text-align: center;
+    color: #000;
+}
+
+#article {
+    float: right;
+    width: 20px;
+    background-color: #fefdff;
+    margin-bottom: 10px;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 2px;
+    background: #e01e0a;
+    color: #fff;
+    width: 180px;
+    display: block;
+    margin: 20px;
+    font-size: 12px;
+}
+
+#post {
+    float: right;
+    position: absolute;
+    max-width:1000px ;
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 10px;
+    left: 310px;
+    height: 160%;
+    display: block;
+}
+
+#lab_name{
+    color: #e01e0a;
+}
+
+#but_ok{
+    color: #fbfff9;
+    background-color: #e01e0a;
+    width: 150px;
+    text-align: center;
+    margin-top:10px;
+    margin-left: 20px;
+    }
+
+#but_ok:hover{
+    color: #e01e0a;
+    background-color: inherit;
+}
+
+#lab{
+    color: #2b009e;
+    font-size: 15px;
+    font-family: "Arial Black";
+    font-style: oblique;
+}
+
+#lab_big{
+    font-family: Tahoma;
+    font-size: 19px;
+    font-style: inherit;
+    text-align: center;
+    color: #e01e0a;
+}
