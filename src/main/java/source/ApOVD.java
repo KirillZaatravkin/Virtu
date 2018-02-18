@@ -12,6 +12,7 @@ public class ApOVD {
 
     String LastName, FirstName, MiddleName, FacktAddr, ResAddr, Article;
     Date BirthDay, DateCreate, DateP;
+    String PasportS, PasportN;
 
 
     public void setFirstName(String FirstName) {
@@ -41,6 +42,24 @@ public class ApOVD {
     public void setBirthday(Date BirthDay) {
         this.BirthDay = BirthDay;
     }
+
+    public String getPasportS() {
+        return PasportS;
+    }
+
+    public String getPasportN() {
+        return PasportN;
+    }
+
+    public void setPasportS(String pasportS) {
+        PasportS = pasportS;
+    }
+
+    public void setPasportN(String pasportN) {
+        PasportN = pasportN;
+    }
+
+
 
     public void setDaterCreate (Date DateCreate)
     {

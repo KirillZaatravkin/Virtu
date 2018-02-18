@@ -28,8 +28,7 @@
 
         sett.setSettings(request.getParameter("settings"));
         System.out.println(sett.getSettings());
-        sett.setSetting_name(request.getParameter("setting_name"));
-        System.out.println(sett.getSetting_name());
+
         sett.setId(Integer.valueOf(request.getParameter("id")));
 
         System.out.print(sett.getId());
@@ -58,7 +57,7 @@
 <div id="post">
     <form action="UpdateSetting.jsp" accept-charset="utf-8" method="POST">
 
-        <p>Название настройки </p> <input type="text" name="setting_name" value=<%=sett.getSetting_name()%>>
+        <p>Название настройки </p> <label><%=sett.getSetting_name()%></label>
         <p>Настройка </p>
         <input type="text" name="settings" value=<%=sett.getSettings()%>>
         <input type="hidden" value=<%=sett.getId()%> name="id">

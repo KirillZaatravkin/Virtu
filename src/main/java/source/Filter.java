@@ -64,4 +64,9 @@ public class Filter {
     }
 
 
+    /**
+     * Created by кирюха on 24.01.2018.
+     */
+    public static class ApOVDAnaliz {
+    }
 }

@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -99,9 +101,13 @@ public class CreateWord {
     }
 
 
-    public void Resediv (List<ApOVDStat> apOVDs) {
+    public void Resediv (List<ApOVDStat> apOVDs, int kolNar, int kolFace, int kolRes) {
 
-
+        Date date=new Date();
+        DateFormat dateFormat = SimpleDateFormat.getDateInstance(SimpleDateFormat.SHORT);
+        String textDate = dateFormat.format(date);
+        Date  currentDate = new Date();
+        Long longDate = currentDate.getTime();
         XWPFDocument document = new XWPFDocument();
         CTSectPr ctSectPr = document.getDocument().getBody().addNewSectPr();
         XWPFHeaderFooterPolicy headerFooterPolicy = new XWPFHeaderFooterPolicy(document, ctSectPr);
@@ -112,14 +118,27 @@ public class CreateWord {
         paragraphConfig.setItalic(true);
         paragraphConfig.setFontSize(25);
         paragraphConfig.setColor("06357a");
-        paragraphConfig.setText( "Отчет");
+        paragraphConfig.setText( "Отчет. Дата составления отчета: "+textDate);
+
+        XWPFTable table1 = document.createTable();
+        XWPFTableRow tableRowOne1 = table1.getRow(0);
+        tableRowOne1.getCell(0).setText("Общее кол-во правонарушений на текущий год");
+        tableRowOne1.addNewTableCell().setText("Общее кол-во лиц, привлеченных к ответственности за текущий год");
+        tableRowOne1.addNewTableCell().setText("Выявлено правонарушителей-рецидивистов");
+        XWPFTableRow tableRow1 = table1.createRow();
+        tableRow1.getCell(0).setText(String.valueOf(kolNar));
+        tableRow1.getCell(1).setText(String.valueOf(kolFace));
+        tableRow1.getCell(2).setText(String.valueOf(kolRes));
+
+        XWPFParagraph bodyParagraph1 = document.createParagraph();
+        bodyParagraph1.setAlignment(ParagraphAlignment.CENTER);
+        XWPFRun paragraphConfig1 = bodyParagraph1.createRun();
+        paragraphConfig1.setItalic(true);
+        paragraphConfig1.setFontSize(25);
+        paragraphConfig1.setColor("06357a");
+        paragraphConfig1.setText( "Список рецидивистов");
 
         XWPFTable table = document.createTable();
-
-
-
-
-
         XWPFTableRow tableRowOne = table.getRow(0);
         tableRowOne.getCell(0).setText("№");
         tableRowOne.addNewTableCell().setText("Фамилия");
@@ -127,33 +146,29 @@ public class CreateWord {
         tableRowOne.addNewTableCell().setText("Отчество");
         tableRowOne.addNewTableCell().setText("Дата рождения");
         tableRowOne.addNewTableCell().setText("Статья КоАП");
+        tableRowOne.addNewTableCell().setText("Дата последнего АП");
         tableRowOne.addNewTableCell().setText("Кол-во АП");
-
-
-
 
 
         for (int i = 0; i < apOVDs.size(); i++) {
             XWPFTableRow tableRow = table.createRow();
-            tableRow.getCell(0).setText(String.valueOf(i));
+            tableRow.getCell(0).setText(String.valueOf(i+1));
             tableRow.getCell(1).setText(apOVDs.get(i).getLastName());
             tableRow.getCell(2).setText(String.valueOf(apOVDs.get(i).getFirstName()));
             tableRow.getCell(3).setText(apOVDs.get(i).getMiddleName());
             tableRow.getCell(4).setText(String.valueOf(apOVDs.get(i).getBirthDay()));
             tableRow.getCell(5).setText(apOVDs.get(i).getArticle());
-            tableRow.getCell(6).setText(String.valueOf(apOVDs.get(i).getKol()));
+            tableRow.getCell(6).setText(String.valueOf(apOVDs.get(i).getDateP()));
+            tableRow.getCell(7).setText(String.valueOf(apOVDs.get(i).getKol()));
         }
         try {
             Service service =new Service();
             Settings sett=new Settings();
             sett= service.getSetting(2);
-            Calendar cal=Calendar.getInstance();
-            long d =cal.getTimeInMillis();
 
 
 
-
-            FileOutputStream outputStream = new FileOutputStream(sett.getSettings()+d+".docx");
+            FileOutputStream outputStream = new FileOutputStream(sett.getSettings()+textDate+""+longDate+".docx");
             document.write(outputStream);
             outputStream.close();
         } catch (IOException e) {

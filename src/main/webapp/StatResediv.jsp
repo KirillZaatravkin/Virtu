@@ -77,6 +77,9 @@
 
 <%@ include file="header.jsp" %>
 <%@ include file="sidebar.jsp" %>
+<%
+    String S1 = request.getParameter("d1");
+    String S2 = request.getParameter("d2");%>
 
 <body>
 <div id="post" >
@@ -85,7 +88,7 @@
 
 
     <form action="StatResediv.jsp" method="POST" name="filter">
-        <div id="kol" style="height: auto">
+        <div id="kol" style="height: 280px">
 
             <div id="lab_big" >
                 <label >Данные для поиска</label>
@@ -98,15 +101,20 @@
                     <div><label label id="lab"> Статья </label></div>
                     <input type="text" name="article">
                 </div>
+                <p><label id="lab">Выбор сортировки:</label></p>
+                <p><input name="sort" type="radio" value="datep"  checked>Дата совершения последнего АП</p>
+                <p><input name="sort" type="radio" value="lastname">Фамилия</p>
+                <p><input name="sort" type="radio" value="kol" > Кол-во преступлений </p>
+                <p><input name="sort" type="radio" value="article"> Статья АП </p>
             </div>
 
             <div id="right_kol">
                 <div><label id="lab">Отчетный период</label></div>
                 <input type="date" id="dt" onchange="mydate1();"/>
-                <input type="text" name="d1" id="ndt" onclick="mydate();" hidden/>
+                <input type="text"   name="d1" id="ndt" onclick="mydate();" hidden/>
 
                 <input type="date" id="dt2" onchange="mydate12();"/>
-                <input type="text" name="d2" id="ndt2" onclick="mydate2();" hidden/>
+                <input type="text"  name="d2" id="ndt2" onclick="mydate2();" hidden/>
             </div>
 
         </div>
@@ -124,6 +132,7 @@
         System.out.print(request.getParameter("d2"));
         String article =  null;
         StatResediv sr = new StatResediv();
+        String sort=request.getParameter("sort");
         article=request.getParameter("article");
         if (article=="")
         {
@@ -141,13 +150,17 @@
                 Date d2 = format.parse(STRd2);
                 java.sql.Date SQLd2 = new java.sql.Date(d2.getTime());
 
-                List <ApOVDStat> apOVDStats =sr.FilterStat(article, SQLd1, SQLd2);
+                List <ApOVDStat> apOVDStats =sr.FilterStat(article, SQLd1, SQLd2,false,"hhh","null");
+                int kolNarush=sr.KolNarush(article, SQLd1, SQLd2,false);
+                int kolFace=sr.KolFace(article, SQLd1, SQLd2,false);
+                int kolRes = apOVDStats.size();
+
 
                 if(request.getParameter("doc")!=null)
                 {
-                    System.out.println("dfd");
+
                     CreateWord cw= new CreateWord();
-                    cw.Resediv(apOVDStats);
+                    cw.Resediv(apOVDStats,kolNarush,kolFace,kolRes);
                 }
                 %>
 
@@ -156,6 +169,29 @@
 
 
 <label id="lab_big">Выборка за <%=SQLd1%> - <%=SQLd2%></label>
+
+    <label id="lab_big">Общая сводка</label>
+
+    <table border=1>
+        <thead>
+        <tr>
+
+            <th>Общее кол-во правонарушений на текущий период</th>
+            <th>Общее кол-во лиц, привлеченных к ответственности за текущий период</th>
+            <th>Выявлено правонарушителей-рецидивистов</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><%=kolNarush%></td>
+            <td><%= kolFace%></td>
+            <td><%= kolRes%></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <label id="lab_big">Правонарушители-рецидивисты</label>
     <table border=1>
         <thead>
         <tr>

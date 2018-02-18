@@ -96,11 +96,10 @@ public class Service {
         connection = DbConnect.getConnection();
 
         try {
-            ps = connection.prepareStatement("update  settings set sett=? , sett_name=? where id=?");
+            ps = connection.prepareStatement("update  settings set sett=? where id=?");
 
             ps.setString(1, setting.getSettings());
-           ps.setString(2, setting.getSetting_name());
-            ps.setInt(3,setting.getId());
+            ps.setInt(2,setting.getId());
 
             ps.execute();
             System.out.println(setting.getId());

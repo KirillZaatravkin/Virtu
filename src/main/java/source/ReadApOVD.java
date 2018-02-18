@@ -21,7 +21,9 @@ public class ReadApOVD {
     public static final int FacktAddrCell = 4;
     public static final int ResAddrCell = 5;
     public static final int ArrticleCell = 6;
-    public static final int DatePCell = 7;
+    public static final int DatePCell = 16;
+    public static final int PasportSCell = 10;
+    public static final int PasportNCell = 11;
     private Connection connection;
 
     public ReadApOVD() {
@@ -68,6 +70,18 @@ public class ReadApOVD {
             apOVD.setFacktAddr(row.getCell(FacktAddrCell).getStringCellValue());
             apOVD.setResAddr(row.getCell(ResAddrCell).getStringCellValue());
             apOVD.setArticle(row.getCell(ArrticleCell).getStringCellValue());
+            try{
+
+            {apOVD.setPasportS(row.getCell(PasportSCell).getStringCellValue());
+                apOVD.setPasportN(row.getCell(PasportNCell).getStringCellValue());
+            }
+
+
+            }
+            catch (java.lang.NullPointerException e)
+            {
+System.out.println("j");
+            }
             listapOVD.add(apOVD);
             i++;
         }
@@ -83,14 +97,13 @@ public class ReadApOVD {
         for (int i = 0; i < apOVDList.size(); i++) {
             j++;
             try {
-                ps = connection.prepareStatement("insert into ap_ovd(lastname,firstname,middlename,facktaddr,resaddr,article,birthday, datep) values (?,?,?,?,?,?,?,?)");
+                ps = connection.prepareStatement("insert into ap_ovd(lastname,firstname,middlename,facktaddr,resaddr,article,birthday, datep,pasports,pasportn) values (?,?,?,?,?,?,?,?,?,?)");
                 ps.setString(1, toUpperCase(apOVDList.get(i).getFirstName()));
                 ps.setString(2, toUpperCase(apOVDList.get(i).getLastName()));
                 ps.setString(3, toUpperCase(apOVDList.get(i).getMiddleName()));
                 ps.setString(4, apOVDList.get(i).getFacktAddr());
                 ps.setString(5, apOVDList.get(i).getResAddr());
                 ps.setString(6, apOVDList.get(i).getArticle());
-
 
                 if (apOVDList.get(i).getBirthDay() != null) {
                     ps.setDate(7, new java.sql.Date(apOVDList.get(i).getBirthDay().getTime()));
@@ -106,6 +119,8 @@ public class ReadApOVD {
                 } else {
                     ps.setNull(8, Types.DATE);
                 }
+                ps.setString(9, apOVDList.get(i).getPasportS());
+                ps.setString(10, apOVDList.get(i).getPasportN());
                 ps.executeUpdate();
 
             } catch (SQLException e) {

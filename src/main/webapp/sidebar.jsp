@@ -11,8 +11,9 @@
 <ul id="navbar">
 
 
-    <li><a href="FindFace.jsp">Поиск гражданина</a></li>
-    <li><a href="StatResediv.jsp">Правонарушители-рецидивисты</a></li>
+    <li><a href="FindFace.jsp">Поиск гражданина по базе</a></li>
+    <li><a href="AnalizMenu.jsp">Анализ</a></li>
+    <li><a href="StatResediv.jsp">Правонарушители-рецидивисты (детальный поиск)</a></li>
     <li><a href="ApOVD.jsp">Загрузить данные</a></li>
     <li><a href="Service.jsp">Настройки</a></li>
     <li><a href="index.jsp">Работа с пользователями</a></li>
