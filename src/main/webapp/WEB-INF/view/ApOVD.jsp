@@ -8,14 +8,14 @@
 <%@ page import="source.ApOVD" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="source.Service" %>
+<%@ page import="source.system.dao.SettingsDao" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="source.Settings" %>
+<%@ page import="source.system.model.Settings" %>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>ИТО</title>
-    <style> <%@include file="css/style.css"%> </style>
+    <style> <%@include file="../css/style.css"%> </style>
 </head>
 <%@ include file="header.jsp" %>
 <%@ include file="sidebar.jsp" %>
@@ -24,8 +24,8 @@
     <%
         String myfile = null;
         myfile = request.getParameter("myfile");
-        Service service = new Service();
-        Settings sett = service.getSetting(1);%>
+        SettingsDao settingsDao = new SettingsDao();
+        Settings sett = settingsDao.getSetting(1);%>
     <label>Папка, в которую следует поместить файл:<%=sett.getSettings()%>
     </label>
     <% if (myfile != null) {

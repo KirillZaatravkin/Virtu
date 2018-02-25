@@ -1,10 +1,10 @@
-package source;
+package source.system.model;
 
 /**
  * Created by кирюха on 24.11.2017.
  */
 public class Settings {
-    String settings, setting_name;
+    String settings, settingname;
     int id;
 
     public String getSettings ()
@@ -12,9 +12,9 @@ public class Settings {
         return settings;
     }
 
-    public String getSetting_name()
+    public String getSettingname()
     {
-        return setting_name;
+        return settingname;
     }
 
     public int getId()
@@ -30,7 +30,7 @@ public class Settings {
 
     public String setSetting_name(String setting_name)
     {
-        this.setting_name=setting_name;
+        this.settingname =setting_name;
         return setting_name;
     }
 

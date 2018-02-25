@@ -1,18 +1,15 @@
-package source;
+package source.system.dao;
 
 /**
  * Created by кирюха on 21.11.2017.
  */
 
 
+import org.springframework.stereotype.Repository;
+import source.DbConnect;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-;
 
-import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
-
-
+@Repository
 public class LoginAction  {
     private Connection connection;
 
@@ -62,4 +59,5 @@ public class LoginAction  {
         return "";
     }
 
-   }
+
+}

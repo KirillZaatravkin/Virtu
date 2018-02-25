@@ -19,10 +19,10 @@
 <div id="header">
 
     <div style="width: 100%;">
-        <div style=" float: right; width: 200px;"><img src="/css/media/logo.png"></div>
+        <div style=" float: right; width: 200px;"><img src="/media/logo.png"></div>
         <div style="float: right; max-width: 750px;"><h1>База АП по Псковской области.</h1></div>
         <% if (session.getAttribute("login") == null) { %>
-        <form action="login.jsp" method="post">
+        <form action="/login" method="post">
             Логин <input type="text" name="login">
             Пароль <input type="password" name="password">
             <button type="submit"> Войти</button>

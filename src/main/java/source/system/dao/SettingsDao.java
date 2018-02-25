@@ -1,4 +1,8 @@
-package source;
+package source.system.dao;
+
+import org.springframework.stereotype.Repository;
+import source.DbConnect;
+import source.system.model.Settings;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -7,13 +11,11 @@ import java.util.List;
 /**
  * Created by кирюха on 24.11.2017.
  */
-public class Service {
-    private Connection connection;
-
-
+@Repository
+public class SettingsDao {
 
     public Settings getSetting(int id) {
-        connection = DbConnect.getConnection();
+        Connection connection = DbConnect.getConnection();
         PreparedStatement statement = null;
         ResultSet rs = null;
         Settings setting = new Settings();
@@ -51,7 +53,7 @@ public class Service {
 
     public List<Settings> getAllSettings()
     {
-        connection = DbConnect.getConnection();
+        Connection connection = DbConnect.getConnection();
         PreparedStatement statement = null;
         ResultSet rs = null;
         List<Settings> sett =new ArrayList<Settings>();
@@ -91,9 +93,18 @@ public class Service {
 
     }
 
+    public  Settings newSetting (int id, String settings, String settingname)
+    {
+        Settings sett=new Settings();
+        sett.setId(id);
+        sett.setSetting_name(settingname);
+        sett.setSettings(settings);
+        return sett;
+    }
+
     public void updateSetting(Settings setting) {
         PreparedStatement ps = null;
-        connection = DbConnect.getConnection();
+      Connection  connection = DbConnect.getConnection();
 
         try {
             ps = connection.prepareStatement("update  settings set sett=? where id=?");

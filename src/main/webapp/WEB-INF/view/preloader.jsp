@@ -25,31 +25,38 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
     <title>ИТО</title>
-    <style> <%@include file="css/style.css"%> </style>
+    <style> <%@include file="../css/style.css"%> </style>
     <script>
 
-        function  preload () {
-            window.location = "/Analiz.jsp?interval=year";
+        function  preload_year () {
+            window.location = "/view/Analiz.jsp";
+        }
+        function  preload_month() {
+            window.location = "/view/Analiz.jsp";
+        }
+        function preload_lastload() {
+            window.location="/view/Analiz.jsp";
         }
     </script>
 </head>
 
-
-
-
-
 <div id="preloader_malc">
     <div>
         Подождите, идет загрузка  ...
-
-        <img src="css/media/load.gif">
+        <img src="/media/load.gif">
     </div>
 </div>
-
-
-<script>
-    preload();
-</script>
-
+<%
+if (request.getParameter("interval").equals("year"))
+{
+    %>
+<script>preload_year(); </script>
+<%} else if((request.getParameter("interval").equals("month"))
+)
+{%>
+<script>preload_month();</script>
+<%} else {%>
+  <script>preload_lastload();</script>
+<%}%>
 </html>
 

@@ -20,12 +20,7 @@ public class StatResediv {
 
     private Connection connection;
 
-    private static final int threadCount = 1;
-
-
-
-
-
+    private static final int threadCount = 3;
 
     public List<ApOVDStat> FilterStat(String article, java.sql.Date d1, java.sql.Date d2, boolean flag, String sort, String interval)
     {
@@ -58,7 +53,7 @@ public class StatResediv {
                 statement = connection.prepareStatement("select count(id) as kol, lastname, firstname, birthday, middlename, article,pasportn,pasports, max(datep) as md , max(datep) - INTERVAL '365 day' as md2 from ap_ovd where EXTRACT (YEAR from datep)= EXTRACT (YEAR FROM now())  group by lastname, firstname, middlename, birthday, article ,pasportn,pasports  ;");
 
             }if (article != null&& flag==true) {
-                statement = connection.prepareStatement("select count(id) as kol, lastname, firstname, birthday, middlename, article , max(datep) as md ,  max(datep) - INTERVAL '365 day' as md2 pasports, pasportn from ap_ovd where EXTRACT (YEAR from datep)= EXTRACT (YEAR FROM now()) group by lastname, firstname, middlename, birthday, article, pasportn, pasports   ;");
+                statement = connection.prepareStatement("select count(id) as kol, lastname, firstname, birthday, middlename, article , max(datep) as md ,  max(datep) - INTERVAL '365 day' as md2 pasports, pasportn from ap_ovd where EXTRACT (YEAR from datep)= EXTRACT (YEAR FROM now()) and article=? group by lastname, firstname, middlename, birthday, article, pasportn, pasports   ;");
                 statement.setString(1, article);
 
             }
@@ -69,12 +64,23 @@ public class StatResediv {
 
                 }
                 if (article != null && flag == true) {
-                    statement = connection.prepareStatement("select count(id) as kol, lastname, firstname, birthday, middlename, article , max(datep) as md ,  max(datep) - INTERVAL '365 day' as md2, pasports, pasportn from ap_ovd WHERE EXTRACT (MONTH from datep)= EXTRACT (MONTH FROM now())  group by lastname, firstname, middlename, birthday, article, pasportn, pasports   ;");
+                    statement = connection.prepareStatement("select count(id) as kol, lastname, firstname, birthday, middlename, article , max(datep) as md ,  max(datep) - INTERVAL '365 day' as md2, pasports, pasportn from ap_ovd WHERE EXTRACT (MONTH from datep)= EXTRACT (MONTH FROM now()) and article=? group by lastname, firstname, middlename, birthday, article, pasportn, pasports   ;");
                     statement.setString(1, article);
 
                 }
             }
+            if(interval.equals("lastload")) {
 
+                if (article == null && flag == true) {
+                    statement = connection.prepareStatement("select count(id) as kol, lastname, firstname, birthday, middlename, article,pasportn,pasports, max(datep) as md , max(datep) - INTERVAL '365 day' as md2 from ap_ovd where datecreate=(select max(datecreate) from ap_ovd)  group by lastname, firstname, middlename, birthday, article ,pasportn,pasports  ;");
+
+                }
+                if (article != null && flag == true) {
+                    statement = connection.prepareStatement("select count(id) as kol, lastname, firstname, birthday, middlename, article , max(datep) as md ,  max(datep) - INTERVAL '365 day' as md2, pasports, pasportn from ap_ovd WHERE datecreate=(select max(datecreate) from ap_ovd)  and article=? group by lastname, firstname, middlename, birthday, article, pasportn, pasports   ;");
+                    statement.setString(1, article);
+
+                }
+            }
 
             rs = statement.executeQuery();
             while (rs.next()) {

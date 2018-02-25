@@ -5,19 +5,18 @@ package source;
  * Created by кирюха on 22.11.2017.
  */
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import org.apache.poi.xwpf.model.XWPFHeaderFooterPolicy;
 import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
+import source.system.dao.SettingsDao;
+import source.system.model.Settings;
 
 
 public class CreateWord {
@@ -55,7 +54,7 @@ public class CreateWord {
         XWPFTableRow tableRowOne = table.getRow(0);
         tableRowOne.getCell(0).setText("№");
         tableRowOne.addNewTableCell().setText("Статья КоАП");
-        tableRowOne.addNewTableCell().setText("Дата АП");
+        tableRowOne.addNewTableCell().setText("Дата постановления об АП");
         tableRowOne.addNewTableCell().setText("Место регестрации");
         tableRowOne.addNewTableCell().setText("Место проживания");
         tableRowOne.addNewTableCell().setText("Дата занесения в БД");
@@ -71,9 +70,9 @@ public class CreateWord {
             tableRow.getCell(5).setText(String.valueOf(apOVDs.get(i).getDateCreate()));
         }
         try {
-            Service service =new Service();
+            SettingsDao settingsDao =new SettingsDao();
             Settings sett=new Settings();
-           sett= service.getSetting(2);
+           sett= settingsDao.getSetting(2);
 
 
             FileOutputStream outputStream = new FileOutputStream(sett.getSettings()+lastname+".docx");
@@ -146,7 +145,7 @@ public class CreateWord {
         tableRowOne.addNewTableCell().setText("Отчество");
         tableRowOne.addNewTableCell().setText("Дата рождения");
         tableRowOne.addNewTableCell().setText("Статья КоАП");
-        tableRowOne.addNewTableCell().setText("Дата последнего АП");
+        tableRowOne.addNewTableCell().setText("Дата последнего постановления");
         tableRowOne.addNewTableCell().setText("Кол-во АП");
 
 
@@ -162,9 +161,9 @@ public class CreateWord {
             tableRow.getCell(7).setText(String.valueOf(apOVDs.get(i).getKol()));
         }
         try {
-            Service service =new Service();
+            SettingsDao settingsDao =new SettingsDao();
             Settings sett=new Settings();
-            sett= service.getSetting(2);
+            sett= settingsDao.getSetting(2);
 
 
 

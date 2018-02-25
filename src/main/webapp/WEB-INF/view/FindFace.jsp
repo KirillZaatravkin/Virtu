@@ -38,7 +38,7 @@
     </script>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>ИТО</title>
-    <style> <%@include file="css/style.css"%> </style>
+    <style> <%@include file="../css/style.css"%> </style>
 </head>
 
 <%@ include file="header.jsp" %>
@@ -100,7 +100,11 @@
                 Filter filter = new Filter();
                 List<ApOVD> apOVDs = filter.FilterApOVD(lastname, firstname, middlename, SQLbirthday);
 
+
+
+
     %>
+
 
     <label id="lab_name"><%= lastname%>
     </label>

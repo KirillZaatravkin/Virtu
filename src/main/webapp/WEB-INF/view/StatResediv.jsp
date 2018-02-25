@@ -28,7 +28,7 @@
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>ИТО</title>
-    <style> <%@include file="css/style.css"%> </style>
+    <style> <%@include file="../css/style.css"%> </style>
 
     <script>
 

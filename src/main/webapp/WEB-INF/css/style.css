@@ -141,10 +141,15 @@
     padding: 10px;
     margin: 10px;
     color: #999999;
-    font-size: 28px;
+    font-size: 24px;
     font-family: cursive;
     text-align: center;
     vertical-align: middle;
+
+}
+
+#analiz p {
+    font-size: 19px;
 
 }
 

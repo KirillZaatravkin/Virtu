@@ -1,13 +1,35 @@
 <?xml version ="1.0" encoding ="utf-8" ?>
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <!--<display-name>Archetype Created Web Application</display-name>-->
 
-<locale-charset-info default-locale="">
-<locale-charset-map locale="" charset=""/>
-<parameter-encoding default-charset="UTF-8"/>
-</locale-charset-info>
+<!--<locale-charset-info default-locale="">-->
+<!--<locale-charset-map locale="" charset=""/>-->
+<!--<parameter-encoding default-charset="UTF-8"/>-->
+<!--</locale-charset-info>-->
 
-    <session-config>
-    <session-timeout>900</session-timeout>
-</session-config>
+<!--<session-config>-->
+    <!--<session-timeout>900</session-timeout>-->
+<!--</session-config>-->
+
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>-->
+    <!--</listener>-->
+
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/config/mvc-config.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 </web-app>

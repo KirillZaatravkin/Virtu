@@ -1,6 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.util.*" %>
 <%@page import="source.*" %>
+<%@ page import="source.system.model.Settings" %>
+<%@ page import="source.system.dao.SettingsDao" %>
 
 
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
@@ -17,37 +20,35 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>ИТО</title>
-    <style> <%@include file="css/style.css"%> </style>
+    <style> <%@include file="../css/style.css"%> </style>
 </head>
 <%@ include file="header.jsp" %>
 <%@ include file="sidebar.jsp" %>
 
 <div id="post">
-    <% Service service = new Service(); %>
     <label>Настройки</label>
     <table border=1>
         <thead>
-        <tr><th>Номер</th>
+        <tr>
             <th>Название</th>
             <th>Настройка</th>
         </tr>
         </thead>
         <tbody>
-        <% List<Settings> settings=service.getAllSettings();
-            for (int i = 0; i < settings.size(); i++) {
-        %>
+
+        <c:forEach items="${settingsList}" var="setting">
         <tr>
-            <td><%=settings.get(i).getId()%></td>
-            <td><%=settings.get(i).getSetting_name()%></td>
-            <td><%=settings.get(i).getSettings()%></td>
-            <td> <a href="UpdateSetting.jsp?id=<%=settings.get(i).getId()%>">Редактировать</a>
-            </td>
+            <td><c:out value="${setting.settingname}"/></td>
+            <td><c:out value="${setting.settings}"/></td>
+            <td> <a href="/settingsupdate?id=${setting.id}">Редактировать</a>
+
         </tr>
-        <%}%>
+        </c:forEach>
         </tbody>
     </table>
 
 
+    </td>
 
 
 </div>

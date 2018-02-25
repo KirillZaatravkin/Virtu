@@ -1,16 +1,20 @@
-package source;
+package source.system.dao;
+
+import org.springframework.stereotype.Repository;
+import source.DbConnect;
+import source.system.model.User;
 
 import java.sql.*;
 import java.util.*;
 
-public class UserSee {
-    private Connection connection;
 
-    public UserSee() {
-        connection = DbConnect.getConnection();
-    }
+@Repository
+public class UserDao {
+
+
 
     public List<User> getAllUsers() {
+      Connection  connection = DbConnect.getConnection();
         List<User> users = new ArrayList<User>();
         Statement statement = null;
         ResultSet rs = null;
@@ -49,8 +53,7 @@ public class UserSee {
 
 
     public User getUser(int id) {
-
-        connection = DbConnect.getConnection();
+        Connection  connection = DbConnect.getConnection();
         PreparedStatement statement = null;
         ResultSet rs = null;
         User user = new User();
@@ -90,6 +93,7 @@ public class UserSee {
     }
 
     public void addUser(User user) {
+        Connection  connection = DbConnect.getConnection();
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement("insert into users(login,password,fio,groups) values (?,?,?,?)");
@@ -113,9 +117,24 @@ public class UserSee {
         }
     }
 
+
+
+    public User newUser(String password, String login, String fio, String groups, int id)
+    {
+        User user =new User();
+        user.setGroups(groups);
+        user.setPassword(password);
+        user.setLogin(login);
+        user.setFio(fio);
+        user.setId(id);
+        return user;
+
+    }
     public void updateUser(User user) {
+
         PreparedStatement ps = null;
-        connection = DbConnect.getConnection();
+        Connection  connection = DbConnect.getConnection();
+
 
         try {
             ps = connection.prepareStatement("update  users set password=?, fio=?, login=?,groups=? where id=?");

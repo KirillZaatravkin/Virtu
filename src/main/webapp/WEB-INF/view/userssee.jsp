@@ -1,6 +1,5 @@
-<%@ page import="java.io.*" %>
-<%@ page import="java.util.*" %>
-<%@page import="source.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
@@ -10,14 +9,13 @@ if(session.getAttribute("login")==null) {
 %>
 <script> window.location = "header.jsp";</script>
 <%
-
 }
 %>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>ИТО</title>
-    <style> <%@include file="css/style.css"%> </style>
+    <style> <%@include file="../css/style.css"%> </style>
 </head>
 
 <body>
@@ -25,8 +23,7 @@ if(session.getAttribute("login")==null) {
 <%@ include file="sidebar.jsp" %>
 
 <div id="post">
-    <p><a href="UserAdd.jsp">Добавить пользователя</a></p>
-    <% UserSee userSee = new UserSee(); %>
+    <p><a href="/useradd">Добавить пользователя</a></p>
     <label>Зарегистрированные пользователи</label>
 
     <table border=1>
@@ -38,17 +35,15 @@ if(session.getAttribute("login")==null) {
         </tr>
         </thead>
         <tbody>
-        <% List<User> users = userSee.getAllUsers();
-            for (int i = 0; i < users.size(); i++) {
 
-        %>
+        <c:forEach items="${usersList}" var="user">
         <tr>
-            <td><%=users.get(i).getId()%></td>
-            <td><%=users.get(i).getLogin()%></td>
-            <td><%=users.get(i).getReg()%></td>
-            <td> <a href="UserAdd.jsp?id=<%=users.get(i).getId()%>">Редактировать</a> </td>
+            <td><c:out value="${user.id}"/></td>
+            <td><c:out value="${user.login}"/></td>
+            <td><c:out value="${user.reg}"/></td>
         </tr>
-        <%}%>
+        </c:forEach>
+
         </tbody>
     </table>
 </div>

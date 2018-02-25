@@ -17,13 +17,15 @@
 <%@ page import="source.Filter" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="static jdk.nashorn.internal.objects.NativeString.toUpperCase" %>
+<%@ page import="source.system.model.Settings" %>
+<%@ page import="source.system.dao.SettingsDao" %>
 
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>ИТО</title>
-    <style> <%@include file="css/style.css"%> </style>
+    <style> <%@include file="../css/style.css"%> </style>
 </head>
 
 <%@ include file="header.jsp" %>
@@ -40,7 +42,7 @@ try{
         String firstname = toUpperCase(request.getParameter("firstname"));
         String middlename = toUpperCase(request.getParameter("middlename"));
         String STRbirthday = request.getParameter("birthday");
-         Service ser=new Service();
+         SettingsDao ser=new SettingsDao();
          Settings sett= ser.getSetting(2);
 
         if (STRbirthday != null && firstname != null && middlename != null && lastname != null) {

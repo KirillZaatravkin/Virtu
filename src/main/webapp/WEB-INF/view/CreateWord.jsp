@@ -17,17 +17,21 @@
         Date birthday = format.parse(STRbirthday);
         java.sql.Date SQLbirthday = new java.sql.Date(birthday.getTime());
         Filter filter = new Filter();
+
+
+
+
         List<ApOVD> apOVDs = filter.FilterApOVD(lastname, firstname, middlename, SQLbirthday);
         if (apOVDs.size() > 0) {
         CreateWord cw= new CreateWord();
         cw.ApOVDWord(apOVDs);
         %>
-        <script>window.location ="StatResediv.jsp"</script><%
+<script>history.go(-1)</script><%
         }
         else
         {
             %>
-<script>window.location ="StatResediv.jsp"</script>
+<script>history.go(-1)</script>
 <%
         }
     }%>
