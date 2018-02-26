@@ -87,7 +87,7 @@
 <label></label>
 
 
-    <form action="StatResediv.jsp" method="POST" name="filter">
+    <form action="statresediv.jsp" method="POST" name="filter">
         <div id="kol" style="height: 280px">
 
             <div id="lab_big" >
@@ -217,7 +217,7 @@
             <td><%= apOVDStats.get(i).getBirthDay()%></td>
             <td><%= apOVDStats.get(i).getArticle()%></td>
             <td><%= apOVDStats.get(i).getKol()%></td>
-            <td> <form method="post" action="EchoFilter.jsp">
+            <td> <form method="post" action="/echofilter">
                 <input type="hidden" value=<%=apOVDStats.get(i).getLastName()%> name="lastname">
                 <input type="hidden" value=<%=apOVDStats.get(i).getFirstName()%> name="firstname">
                 <input type="hidden" value=<%=apOVDStats.get(i).getMiddleName()%> name="middlename">

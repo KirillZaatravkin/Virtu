@@ -7,7 +7,7 @@
 <%
 if(session.getAttribute("login")==null) {
 %>
-<script> window.location = "header.jsp";</script>
+<script> window.location = "/header";</script>
 <%
 }
 %>

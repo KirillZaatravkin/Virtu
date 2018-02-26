@@ -1,10 +1,8 @@
 <%@page import="source.*" %>
 <%@ page import="source.Filter" %>
 <%@ page import="java.util.List" %>
-<%@ page import="javafx.scene.input.DataFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-
 <%@ page import="java.text.ParseException" %>
 
 
@@ -47,7 +45,7 @@
 <body>
 <div id="post" style="height: 130%">
 
-    <form action="FindFace.jsp" method="POST" name="filter">
+    <form action="/findface" method="POST" name="filter">
         <div id="kol">
 
             <div id="lab_big" >

@@ -8,10 +8,9 @@
 <%
     if (session.getAttribute("login") == null) {
 %>
-<script> window.location = "header.jsp";</script>
+<script> window.location = "/header";</script>
 <%}%>
 
-<%@ page import="java.io.*" %>
 <%@ page import="java.util.*" %>
 <%@page import="source.*" %>
 <%@ page import="source.Filter" %>
@@ -95,7 +94,7 @@ try{
         <%
             }
        %>
-        <form action="CreateWord.jsp" method="post">
+        <form action="/createword" method="post">
             <input type="hidden" name="list" value="1">
             <input type="hidden" name="lastname" value=<%=lastname%>>
             <input type="hidden" name="firstname" value=<%=firstname%>>
@@ -119,6 +118,6 @@ try{
 <%}catch (java.lang.NullPointerException e)
 {
     %>
-<script>window.location("StatResediv.jsp")</script>
+<script>window.location("/statresediv")</script>
 <%
 }%>

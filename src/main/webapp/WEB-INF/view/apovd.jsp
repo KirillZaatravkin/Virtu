@@ -2,7 +2,7 @@
 <%
     if (session.getAttribute("login") == null) {
 %>
-<script> window.location = "header.jsp";</script>
+<script> window.location = "/header";</script>
 <%}%>
 <%@ page import="source.ReadApOVD" %>
 <%@ page import="source.ApOVD" %>
@@ -41,7 +41,7 @@
     <%
         }
     %>
-    <form action="ApOVD.jsp" accept-charset="utf-8" method="POST" name="load">
+    <form action="apovd.jsp" accept-charset="utf-8" method="POST" name="load">
         <input type="file" name="myfile">
         <button type="submit" name="save">ок</button>
     </form>

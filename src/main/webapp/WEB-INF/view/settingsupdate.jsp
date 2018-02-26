@@ -11,7 +11,7 @@
 <%
     if (session.getAttribute("login") == null) {
 %>
-<script> window.location = "header.jsp";</script>
+<script> window.location = "header";</script>
 <%}%>
 
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>

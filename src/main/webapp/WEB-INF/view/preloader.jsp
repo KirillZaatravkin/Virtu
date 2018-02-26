@@ -29,13 +29,13 @@
     <script>
 
         function  preload_year () {
-            window.location = "/view/Analiz.jsp";
+            window.location = "/view/analiz";
         }
         function  preload_month() {
-            window.location = "/view/Analiz.jsp";
+            window.location = "/view/analiz";
         }
         function preload_lastload() {
-            window.location="/view/Analiz.jsp";
+            window.location="/view/analiz";
         }
     </script>
 </head>
