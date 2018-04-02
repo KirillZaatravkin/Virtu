@@ -1,22 +1,24 @@
 <?xml version ="1.0" encoding ="utf-8" ?>
 <web-app>
-  <!--<display-name>Archetype Created Web Application</display-name>-->
 
-<!--<locale-charset-info default-locale="">-->
-<!--<locale-charset-map locale="" charset=""/>-->
-<!--<parameter-encoding default-charset="UTF-8"/>-->
-<!--</locale-charset-info>-->
 
-<!--<session-config>-->
-    <!--<session-timeout>900</session-timeout>-->
-<!--</session-config>-->
-
-    <!--<listener>-->
-        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-    <!--</listener>-->
-    <!--<listener>-->
-        <!--<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>-->
-    <!--</listener>-->
+    <!--Позволяет работать с русскими символами-->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>

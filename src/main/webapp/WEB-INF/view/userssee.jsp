@@ -23,7 +23,8 @@ if(session.getAttribute("login")==null) {
 <%@ include file="sidebar.jsp" %>
 
 <div id="post">
-    <p><a href="/useradd">Добавить пользователя</a></p>
+    <%@ include file="vertsidebar.jsp" %>
+    <p><a id="button_href" href="/useradd">Добавить пользователя</a></p>
     <label>Зарегистрированные пользователи</label>
 
     <table border=1>
@@ -38,9 +39,10 @@ if(session.getAttribute("login")==null) {
 
         <c:forEach items="${usersList}" var="user">
         <tr>
-            <td><c:out value="${user.id}"/></td>
+
             <td><c:out value="${user.login}"/></td>
             <td><c:out value="${user.reg}"/></td>
+            <td><a href="/userupdate?id=${user.id}">Редактировать</a></td>
         </tr>
         </c:forEach>
 

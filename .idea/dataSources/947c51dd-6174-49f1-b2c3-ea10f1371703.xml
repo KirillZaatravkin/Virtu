@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-02-20.17:48:04.843</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1056232</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-03-29.13:47:00.273</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1140994</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -34,217 +34,264 @@
       <StateNumber>982758</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
     </sequence>
-    <sequence id="10" parent="3" name="settings_id_seq">
+    <sequence id="10" parent="3" name="mask_id_seq">
+      <ObjectId>106731</ObjectId>
+      <StateNumber>1140992</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="11" parent="3" name="settings_id_seq">
       <ObjectId>90398</ObjectId>
       <StateNumber>982761</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
     </sequence>
-    <sequence id="11" parent="3" name="siderbar_id_seq">
+    <sequence id="12" parent="3" name="siderbar_id_seq">
       <ObjectId>106701</ObjectId>
       <StateNumber>1056231</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
     </sequence>
-    <sequence id="12" parent="3" name="users_id_seq">
+    <sequence id="13" parent="3" name="users_id_seq">
       <ObjectId>90408</ObjectId>
       <StateNumber>982765</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
     </sequence>
-    <table id="13" parent="3" name="ap_ovd">
+    <table id="14" parent="3" name="ap_ovd">
       <ObjectId>90383</ObjectId>
-      <StateNumber>1013860</StateNumber>
+      <StateNumber>1098624</StateNumber>
     </table>
-    <table id="14" parent="3" name="settings">
+    <table id="15" parent="3" name="mask">
+      <ObjectId>106733</ObjectId>
+      <StateNumber>1140992</StateNumber>
+    </table>
+    <table id="16" parent="3" name="settings">
       <ObjectId>90392</ObjectId>
       <StateNumber>982760</StateNumber>
     </table>
-    <table id="15" parent="3" name="siderbar">
+    <table id="17" parent="3" name="siderbar">
       <ObjectId>106695</ObjectId>
       <StateNumber>1056231</StateNumber>
     </table>
-    <table id="16" parent="3" name="users">
+    <table id="18" parent="3" name="users">
       <ObjectId>90400</ObjectId>
       <StateNumber>982763</StateNumber>
     </table>
-    <column id="17" parent="13" name="id">
+    <column id="19" parent="14" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>982767</StateNumber>
       <DefaultExpression>nextval(&apos;ap_ovd_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="18" parent="13" name="lastname">
+    <column id="20" parent="14" name="lastname">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <StateNumber>982757</StateNumber>
     </column>
-    <column id="19" parent="13" name="firstname">
+    <column id="21" parent="14" name="firstname">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <StateNumber>982757</StateNumber>
     </column>
-    <column id="20" parent="13" name="middlename">
+    <column id="22" parent="14" name="middlename">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <StateNumber>982757</StateNumber>
     </column>
-    <column id="21" parent="13" name="facktaddr">
+    <column id="23" parent="14" name="facktaddr">
       <Position>5</Position>
       <DataType>text|0</DataType>
       <StateNumber>982757</StateNumber>
     </column>
-    <column id="22" parent="13" name="resaddr">
+    <column id="24" parent="14" name="resaddr">
       <Position>6</Position>
       <DataType>text|0</DataType>
       <StateNumber>982757</StateNumber>
     </column>
-    <column id="23" parent="13" name="article">
+    <column id="25" parent="14" name="article">
       <Position>7</Position>
       <DataType>text|0</DataType>
       <StateNumber>982757</StateNumber>
     </column>
-    <column id="24" parent="13" name="birthday">
+    <column id="26" parent="14" name="birthday">
       <Position>8</Position>
       <DataType>date|0</DataType>
       <StateNumber>982757</StateNumber>
     </column>
-    <column id="25" parent="13" name="datecreate">
+    <column id="27" parent="14" name="datecreate">
       <Position>9</Position>
       <DataType>date|0</DataType>
       <StateNumber>982757</StateNumber>
       <DefaultExpression>now()</DefaultExpression>
     </column>
-    <column id="26" parent="13" name="datep">
+    <column id="28" parent="14" name="datep">
       <Position>10</Position>
       <DataType>date|0</DataType>
       <StateNumber>982757</StateNumber>
     </column>
-    <column id="27" parent="13" name="pasportn">
+    <column id="29" parent="14" name="pasportn">
       <Position>13</Position>
       <DataType>text|0</DataType>
       <StateNumber>1013860</StateNumber>
     </column>
-    <column id="28" parent="13" name="pasports">
+    <column id="30" parent="14" name="pasports">
       <Position>14</Position>
       <DataType>text|0</DataType>
       <StateNumber>1013860</StateNumber>
     </column>
-    <index id="29" parent="13" name="apovd_pkey">
+    <column id="31" parent="14" name="cact">
+      <Position>15</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>1098621</StateNumber>
+    </column>
+    <index id="32" parent="14" name="apovd_pkey">
       <ObjectId>90413</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="30" parent="13" name="apovd_pkey">
+    <key id="33" parent="14" name="apovd_pkey">
       <ObjectId>90414</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>apovd_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="31" parent="14" name="sett">
+    <column id="34" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1140992</StateNumber>
+      <DefaultExpression>nextval(&apos;mask_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="35" parent="15" name="title">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>1140994</StateNumber>
+    </column>
+    <column id="36" parent="15" name="mask">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>1140992</StateNumber>
+    </column>
+    <column id="37" parent="15" name="comment">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>1140992</StateNumber>
+    </column>
+    <index id="38" parent="15" name="mask_pkey">
+      <ObjectId>106740</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="39" parent="15" name="mask_pkey">
+      <ObjectId>106741</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>mask_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="40" parent="16" name="sett">
       <Position>1</Position>
       <DataType>text|0</DataType>
       <StateNumber>982760</StateNumber>
     </column>
-    <column id="32" parent="14" name="sett_name">
+    <column id="41" parent="16" name="sett_name">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <StateNumber>982760</StateNumber>
     </column>
-    <column id="33" parent="14" name="id">
+    <column id="42" parent="16" name="id">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>982768</StateNumber>
       <DefaultExpression>nextval(&apos;settings_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <index id="34" parent="14" name="settings_id_pk">
+    <index id="43" parent="16" name="settings_id_pk">
       <ObjectId>90415</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="35" parent="14" name="settings_id_pk">
+    <key id="44" parent="16" name="settings_id_pk">
       <ObjectId>90416</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>settings_id_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="36" parent="15" name="title">
+    <column id="45" parent="17" name="title">
       <Position>1</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1056229</StateNumber>
     </column>
-    <column id="37" parent="15" name="href">
+    <column id="46" parent="17" name="href">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1056230</StateNumber>
     </column>
-    <column id="38" parent="15" name="id">
+    <column id="47" parent="17" name="id">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1056231</StateNumber>
       <DefaultExpression>nextval(&apos;siderbar_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <index id="39" parent="15" name="siderbar_id_pk">
+    <index id="48" parent="17" name="siderbar_id_pk">
       <ObjectId>106710</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="40" parent="15" name="siderbar_id_pk">
+    <key id="49" parent="17" name="siderbar_id_pk">
       <ObjectId>106711</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>siderbar_id_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="41" parent="16" name="id">
+    <column id="50" parent="18" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>982769</StateNumber>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="42" parent="16" name="password">
+    <column id="51" parent="18" name="password">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>982763</StateNumber>
     </column>
-    <column id="43" parent="16" name="reg">
+    <column id="52" parent="18" name="reg">
       <Position>3</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>982763</StateNumber>
       <DefaultExpression>now()</DefaultExpression>
     </column>
-    <column id="44" parent="16" name="delete">
+    <column id="53" parent="18" name="delete">
       <Position>4</Position>
       <Comment>0</Comment>
       <DataType>integer|0</DataType>
       <StateNumber>982763</StateNumber>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="45" parent="16" name="fio">
+    <column id="54" parent="18" name="fio">
       <Position>5</Position>
       <DataType>text|0</DataType>
       <StateNumber>982763</StateNumber>
     </column>
-    <column id="46" parent="16" name="login">
+    <column id="55" parent="18" name="login">
       <Position>6</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>982763</StateNumber>
     </column>
-    <column id="47" parent="16" name="groups">
+    <column id="56" parent="18" name="groups">
       <Position>7</Position>
       <DataType>text|0</DataType>
       <StateNumber>982763</StateNumber>
     </column>
-    <index id="48" parent="16" name="users_pkey">
+    <index id="57" parent="18" name="users_pkey">
       <ObjectId>90417</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="49" parent="16" name="users_pkey">
+    <key id="58" parent="18" name="users_pkey">
       <ObjectId>90418</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>

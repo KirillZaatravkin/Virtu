@@ -31,8 +31,6 @@
     <% if (myfile != null) {
         System.out.print(myfile);
         ReadApOVD rao = new ReadApOVD();
-        List<ApOVD> apOVDS = new ArrayList<ApOVD>();
-
         int i = rao.WriteToBD(rao.ReadExel(sett.getSettings() + myfile));
 
     %>
@@ -41,7 +39,7 @@
     <%
         }
     %>
-    <form action="apovd.jsp" accept-charset="utf-8" method="POST" name="load">
+    <form action="/apovd" accept-charset="utf-8" method="POST" name="load">
         <input type="file" name="myfile">
         <button type="submit" name="save">ок</button>
     </form>

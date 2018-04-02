@@ -41,7 +41,7 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/header")
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, path = "/header")
     public String header (Model model)
     {
         return "header";

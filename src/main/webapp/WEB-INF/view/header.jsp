@@ -33,7 +33,7 @@
             if (session.getAttribute("login") != null) { %>
         <label style="color: #fff7f4"> Здравствуйте, <%= session.getAttribute("login")%>
         </label>
-        <form method="post" action="header.jsp">
+        <form method="post" action="header">
             <input type="hidden" name="exit" value="exit">
             <button type="submit" name="save" id="but_ok">Выйти</button>
         </form>

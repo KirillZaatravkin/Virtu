@@ -13,11 +13,15 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 
 <%@ page import="java.text.ParseException" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="source.system.model.Mask" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="source.system.dao.MaskDAO" %>
 
 <%
     if (session.getAttribute("login") == null) {
 %>
-<script> window.location = "header.jsp";</script>
+<script> window.location = "header";</script>
 <%}%>
 
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
@@ -79,7 +83,12 @@
 <%@ include file="sidebar.jsp" %>
 <%
     String S1 = request.getParameter("d1");
-    String S2 = request.getParameter("d2");%>
+    String S2 = request.getParameter("d2");
+
+    MaskDAO maskDAO=new MaskDAO();
+    List<Mask> maskList= maskDAO.getAllMask();
+
+%>
 
 <body>
 <div id="post" >
@@ -87,8 +96,8 @@
 <label></label>
 
 
-    <form action="statresediv.jsp" method="POST" name="filter">
-        <div id="kol" style="height: 280px">
+    <form action="statresediv" method="POST" name="filter">
+        <div id="kol" ">
 
             <div id="lab_big" >
                 <label >Данные для поиска</label>
@@ -97,15 +106,29 @@
 
 
             <div id="left_kol">
-                <div>
-                    <div><label label id="lab"> Статья </label></div>
-                    <input type="text" name="article">
+
+               <div>
+                <div><label label id="lab"> Статья </label></div>
+                <input type="text" name="article">
+               </div>
+               <div>
+                    <div><label label id="lab">Часть </label></div>
+                    <input type="text" name="cact">
                 </div>
-                <p><label id="lab">Выбор сортировки:</label></p>
-                <p><input name="sort" type="radio" value="datep"  checked>Дата совершения последнего АП</p>
-                <p><input name="sort" type="radio" value="lastname">Фамилия</p>
-                <p><input name="sort" type="radio" value="kol" > Кол-во преступлений </p>
-                <p><input name="sort" type="radio" value="article"> Статья АП </p>
+
+                <div>
+                    <div><label id="lab">Район/город</label></div>
+                    <select name="regionMask">
+                        <%
+                            for (int i = 0; i < maskList.size(); i++) {
+                        %>
+                        <option value="<%=maskList.get(i).getMask()%>"><%=maskList.get(i).getTitle()%></option>
+                        <%
+                            }
+                        %>
+                    </select>
+                </div>
+
             </div>
 
             <div id="right_kol">
@@ -115,6 +138,14 @@
 
                 <input type="date" id="dt2" onchange="mydate12();"/>
                 <input type="text"  name="d2" id="ndt2" onclick="mydate2();" hidden/>
+
+                <p><label id="lab">Выбор сортировки:</label></p>
+                <p><input name="sort" type="radio" value="datep"  checked>Дата совершения последнего АП</p>
+                <p><input name="sort" type="radio" value="lastname">Фамилия</p>
+                <p><input name="sort" type="radio" value="kol" > Кол-во преступлений </p>
+                <p><input name="sort" type="radio" value="article"> Статья АП </p>
+
+
             </div>
 
         </div>
@@ -124,20 +155,27 @@
 
 
     </form>
-
-
-
     <%
 
         System.out.print(request.getParameter("d2"));
         String article =  null;
+        String cact=null;
         StatResediv sr = new StatResediv();
         String sort=request.getParameter("sort");
         article=request.getParameter("article");
+        cact=request.getParameter("cact");
+        String regionMask= request.getParameter("regionMask");
+
         if (article=="")
         {
             article=null;
         }
+
+        if (cact=="")
+        {
+            cact="%";
+        }
+
         try{
             if(request.getParameter("d1")!=null && request.getParameter("d2")!=null)
             {   SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
@@ -150,7 +188,7 @@
                 Date d2 = format.parse(STRd2);
                 java.sql.Date SQLd2 = new java.sql.Date(d2.getTime());
 
-                List <ApOVDStat> apOVDStats =sr.FilterStat(article, SQLd1, SQLd2,false,"hhh","null");
+                List <ApOVDStat> apOVDStats =sr.FilterStat(article, SQLd1, SQLd2,sort,"found",cact,regionMask);
                 int kolNarush=sr.KolNarush(article, SQLd1, SQLd2,false);
                 int kolFace=sr.KolFace(article, SQLd1, SQLd2,false);
                 int kolRes = apOVDStats.size();
@@ -201,7 +239,8 @@
             <th>Отчество</th>
             <th>Дата рождения</th>
             <th>Статья</th>
-            <th>Кол-во правонарушений</th>
+            <th>Часть</th>
+            <th>Кол-во незакрытых правонарушений</th>
             <th></th>
         </tr>
         </thead>
@@ -216,6 +255,7 @@
             <td><%= apOVDStats.get(i).getMiddleName()%></td>
             <td><%= apOVDStats.get(i).getBirthDay()%></td>
             <td><%= apOVDStats.get(i).getArticle()%></td>
+            <td><%= apOVDStats.get(i).getCact()%></td>
             <td><%= apOVDStats.get(i).getKol()%></td>
             <td> <form method="post" action="/echofilter">
                 <input type="hidden" value=<%=apOVDStats.get(i).getLastName()%> name="lastname">

@@ -3,20 +3,16 @@ package source.system.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by кирюха on 26.02.2018.
  */
 @Controller
 public class MainController {
-    @RequestMapping(path = "/analiz")
-    public String analiz (Model model)
-    {
 
-        return "analiz";
-    }
 
-    @RequestMapping(path = "/apovd")
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST},path = "/apovd")
     public String apovd (Model model)
     {
 
@@ -56,5 +52,13 @@ public class MainController {
     {
 
         return "statresediv";
+    }
+
+
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST},path = "/analiz")
+    public String analiz (Model model)
+    {
+
+        return "analiz";
     }
 }

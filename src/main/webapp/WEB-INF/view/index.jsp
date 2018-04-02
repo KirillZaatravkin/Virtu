@@ -29,17 +29,17 @@
 <div id="post">
     <div style="width: 690px">
   <div id="analiz_right">
-      <a href="preloader.jsp?interval=year">
+      <a href="preloader?interval=year">
          <div id="analiz">Анализ текущего года
          <p><c:out value="${y}"/></p></div>
       </a>
-      <a href="preloader.jsp?interval=month">
+      <a href="preloader?interval=month">
           <div id="analiz">Анализ текущего месяца
               <p><c:out value="${m}"/></p></div>
       </a>
    </div>
      <div id="analiz_left">
-         <a href="preloader.jsp?interval=lastload">
+         <a href="preloader?interval=lastload">
           <div id="analiz">Анализ посдедней выгрузки
          <p><c:out value="${l}"/></p></div>
          </a>

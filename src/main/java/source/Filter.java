@@ -12,7 +12,7 @@ import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
 public class Filter {
     private Connection connection;
 
-    public List<ApOVD> FilterApOVD(String lastName, String firstName, String middleName, Date birthDay) {
+    public List<ApOVD> Filter(String lastName, String firstName, String middleName, Date birthDay) {
         lastName = toUpperCase(lastName);
         firstName = toUpperCase(firstName);
         middleName = toUpperCase(middleName);
@@ -21,7 +21,7 @@ public class Filter {
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
-            statement = connection.prepareStatement("select * from ap_ovd where lastname=? and firstname=? and middlename=? and birthday=?");
+            statement = connection.prepareStatement("select * from ap_ovd where lastname=? and firstname=? and middlename=? and birthday=? order by datep DESC ");
             statement.setString(1, lastName);
             statement.setString(2, firstName);
             statement.setString(3, middleName);
@@ -34,6 +34,7 @@ public class Filter {
                 apOVD.setMiddleName(toUpperCase(rs.getString("middlename")));
                 apOVD.setFacktAddr(rs.getString("facktaddr"));
                 apOVD.setResAddr(rs.getString("resaddr"));
+                apOVD.setCact(rs.getString("cact"));
                 apOVD.setArticle(rs.getString("article"));
                 apOVD.setBirthday(rs.getDate("birthday"));
                 apOVD.setDateP(rs.getDate("datep"));
@@ -61,6 +62,66 @@ public class Filter {
         }
         DbConnect.close(connection);
         return apOVDs;
+    }
+
+
+    public List<ApOVDStat> FilterApOVD(String lastName, String firstName, String middleName, Date birthDay) {
+        lastName = toUpperCase(lastName);
+        firstName = toUpperCase(firstName);
+        middleName = toUpperCase(middleName);
+        connection = DbConnect.getConnection();
+        List<ApOVDStat>  apOVDstat=new ArrayList<ApOVDStat>();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            if (birthDay!=null) {
+                statement = connection.prepareStatement("select  count(id), lastname, firstname, middlename,birthday from ap_ovd where lastname like ? and firstname like ? and middlename like ? and birthday=? group by pasports,pasportn,lastname, firstname, middlename,birthday");
+                statement.setString(1, lastName);
+                statement.setString(2, firstName);
+                statement.setString(3, middleName);
+                statement.setDate(4, birthDay);
+            }
+            else {
+                statement = connection.prepareStatement("select count(id), lastname, firstname, middlename,birthday  from ap_ovd where lastname like ? and firstname like ? and middlename like ? group by pasports,pasportn,lastname, firstname, middlename,birthday");
+                statement.setString(1, lastName);
+                statement.setString(2, firstName);
+                statement.setString(3, middleName);
+
+
+            }
+            rs = statement.executeQuery();
+
+            while (rs.next()) {
+                System.out.println(rs.getString("lastname"));
+                ApOVDStat apOVD = new ApOVDStat();
+                apOVD.setLastName(toUpperCase(rs.getString("lastname")));
+                apOVD.setFirstName(toUpperCase(rs.getString("firstname")));
+                apOVD.setMiddleName(toUpperCase(rs.getString("middlename")));
+                apOVD.setBirthday(rs.getDate("birthday"));
+
+                apOVDstat.add(apOVD);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        DbConnect.close(connection);
+        return apOVDstat;
     }
 
 

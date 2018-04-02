@@ -15,7 +15,7 @@
 <%
     if(session.getAttribute("login")==null) {
 %>
-<script> window.location = "header.jsp";</script>
+<script> window.location = "header";</script>
 <%
 
     }
@@ -29,21 +29,22 @@
     <script>
 
         function  preload_year () {
-            window.location = "/view/analiz";
+            window.location = "/analiz?interval=year";
         }
         function  preload_month() {
-            window.location = "/view/analiz";
+            window.location = "/analiz?interval=month";
         }
         function preload_lastload() {
-            window.location="/view/analiz";
+            window.location="/analiz?interval=lastload";
         }
     </script>
 </head>
 
 <div id="preloader_malc">
     <div>
-        Подождите, идет загрузка  ...
         <img src="/media/load.gif">
+        Подождите, идет загрузка  ...
+
     </div>
 </div>
 <%

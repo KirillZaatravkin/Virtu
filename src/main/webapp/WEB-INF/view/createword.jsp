@@ -21,7 +21,7 @@
 
 
 
-        List<ApOVD> apOVDs = filter.FilterApOVD(lastname, firstname, middlename, SQLbirthday);
+        List<ApOVD> apOVDs = filter.Filter(lastname, firstname, middlename, SQLbirthday);
         if (apOVDs.size() > 0) {
         CreateWord cw= new CreateWord();
         cw.ApOVDWord(apOVDs);

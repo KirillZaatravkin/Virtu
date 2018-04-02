@@ -11,13 +11,11 @@
 <ul id="navbar">
 
 
-    <li><a href="findface.jsp">Поиск гражданина по базе</a></li>
-    <li><a href="index.jsp">Анализ</a></li>
-    <li><a href="statresediv.jsp">Правонарушители-рецидивисты (детальный поиск)</a></li>
-    <li><a href="apovd.jsp">Загрузить данные</a></li>
-    <li><a href="settingssee.jsp">Настройки</a></li>
-    <li><a href="userssee.jsp">Работа с пользователями</a></li>
-
+    <li><a href="/findface">Поиск гражданина по базе</a></li>
+    <li><a href="/index">Анализ</a></li>
+    <li><a href="/statresediv">Правонарушители-рецидивисты (детальный поиск)</a></li>
+    <li><a href="/apovd">Загрузить данные</a></li>
+    <li><a href="/settingssee">Настройки ИС</a></li>
 
 </ul>
 

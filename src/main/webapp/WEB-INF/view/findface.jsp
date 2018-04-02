@@ -4,7 +4,8 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.text.ParseException" %>
-
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.apache.xmlbeans.impl.xb.xsdschema.SimpleRestrictionType" %>
 
 
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
@@ -71,8 +72,9 @@
 
             <div id="right_kol">
                 <div><label id="lab">Дата рождения</label></div>
-                <input type="date" id="dt" onchange="mydate1();"/>
+                <div>Известна точная дата</div>	<input type="checkbox" name="on" checked value="on"  onclick="if(this.checked){this.nextSibling.style.display=''}else {this.nextSibling.style.display='none';  this.nextSibling.value='';}"><input type="date" id="dt" onchange="mydate1();"/>
                 <input type="text" name="birthday" id="ndt" onclick="mydate();" hidden/>
+
             </div>
 
     </div>
@@ -83,69 +85,92 @@
     </form>
 
     <%  request.setCharacterEncoding("UTF-8");
+        String on=request.getParameter("on");
+        List<ApOVDStat> apOVDs=new ArrayList<ApOVDStat>();
+        java.sql.Date SQLbirthday=null;
+        System.out.print(SQLbirthday);
         String lastname = (request.getParameter("lastname"));
         String middlename = (request.getParameter("middlename"));
         String firstname = (request.getParameter("firstname"));
+        String STRbirthday = request.getParameter("birthday");
+                if (firstname==""|| firstname==null){firstname ="%";}
+                if (lastname==""|| lastname==null){lastname ="%";}
+                if(middlename=="" || middlename==null){middlename="%";}
+                if(on!=null)
+                {
+
+                    try   {
+                        STRbirthday = request.getParameter("birthday");
+                        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+                        Date birthday = format.parse(STRbirthday);
+                        SQLbirthday = new java.sql.Date(birthday.getTime());
+                        System.out.println("hf");
+                        System.out.println(SQLbirthday);
+                    }catch (ParseException e)
+                    {%>
+                         <script> alert("Дата равна NULL ! Сними галку или корректно заполни поле");</script>
+                     <%
+                    }
+                }
+                System.out.print(request.getParameter("on"));
+
+                if ((firstname != "%" || middlename != "%" || lastname != "%") && (on!=null))
+                {
+                    Filter filter = new Filter();
+                    apOVDs = filter.FilterApOVD(lastname, firstname, middlename, SQLbirthday);
+                }
 
 
-
-            try {
-                if (firstname != null && middlename != null && lastname != null ) {
-                String STRbirthday = request.getParameter("birthday");
-                SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-                Date birthday = format.parse(STRbirthday);
-                java.sql.Date SQLbirthday = new java.sql.Date(birthday.getTime());
-                Filter filter = new Filter();
-                List<ApOVD> apOVDs = filter.FilterApOVD(lastname, firstname, middlename, SQLbirthday);
-
-
+              if ((firstname != "%" || middlename != "%" || lastname != "%") && (on==null))
+              {
+                 Filter filter = new Filter();
+                 apOVDs = filter.FilterApOVD(lastname, firstname, middlename, null);
+              }
 
 
     %>
 
 
-    <label id="lab_name"><%= lastname%>
-    </label>
-    <label id="lab_name"><%= firstname%>
-    </label>
-    <label id="lab_name"><%= middlename%>
-    </label>
-    <p><label><b><%= STRbirthday%></b> года рождения. </label></p>
-    <p><label>Информация из баз ОВД: </label></p>
-
+    <label id="lab_big">Правонарушители</label>
     <table border=1>
         <thead>
         <tr>
 
-            <th>Статья КоАП РФ</th>
-            <th>Место прибывания согласно БД</th>
-            <th>Место регистрации  согласно БД</th>
-            <th>Дата загрузки в БД</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Дата рождения</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <% ;
+        <%
             for (int i = 0; i < apOVDs.size(); i++) {
 
         %>
         <tr>
-            <td><%=apOVDs.get(i).getArticle()%></td>
-            <td><%= apOVDs.get(i).getFacktAddr()%></td>
-            <td><%= apOVDs.get(i).getResAddr()%></td>
-            <td><%= apOVDs.get(i).getDateCreate()%></td>
+            <td><%=apOVDs.get(i).getLastName()%></td>
+            <td><%= apOVDs.get(i).getFirstName()%></td>
+            <td><%= apOVDs.get(i).getMiddleName()%></td>
+            <td><%= apOVDs.get(i).getBirthDay()%></td>
+            <td> <form method="post" action="/echofilter">
+                <input type="hidden" value=<%=apOVDs.get(i).getLastName()%> name="lastname">
+                <input type="hidden" value=<%=apOVDs.get(i).getFirstName()%> name="firstname">
+                <input type="hidden" value=<%=apOVDs.get(i).getMiddleName()%> name="middlename">
+                <input type="hidden" value=<%=apOVDs.get(i).getBirthDay()%> name="birthday">
+                <button type="submit">Подробно о грaжданине</button>
+            </form>
+            </td>
+
         </tr>
         <%
-                }
+
             }
         %>
         </tbody>
     </table>
-
-<%} catch (ParseException e){
-
-}%>
-
 </div>
+
 
 <%@ include file="footer.jsp" %>
 </body>

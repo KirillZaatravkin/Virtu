@@ -25,7 +25,9 @@
 <%@ include file="header.jsp" %>
 <%@ include file="sidebar.jsp" %>
 
+
 <div id="post">
+    <%@ include file="vertsidebar.jsp" %>
     <label>Настройки</label>
     <table border=1>
         <thead>
@@ -45,9 +47,7 @@
         </tr>
         </c:forEach>
         </tbody>
-    </table>
-
-
+       </table>
     </td>
 
 

@@ -16,6 +16,7 @@ public class ApOVDStat {
     String FirstName;
     String MiddleName;
     String Article;
+    String Cact;
     String PaspotrS;
     String PasportN;
     Date BirthDay, DateP, DateP2;
@@ -29,12 +30,20 @@ public class ApOVDStat {
         return PasportN;
     }
 
-    public void setPaspotrS(String paspotrS) {
-        PaspotrS = paspotrS;
+    public String getCact() {
+        return Cact;
+    }
+
+    public void setCact(String Cact) {
+        this.Cact = Cact;
     }
 
     public void setPasportN(String pasportN) {
-        PasportN = pasportN;
+        this.PasportN = pasportN;
+    }
+
+    public void setPaspotrS(String paspotrS) {
+        this.PaspotrS = paspotrS;
     }
 
     public void setFirstName(String FirstName) {
@@ -57,6 +66,7 @@ public class ApOVDStat {
     public void setDateP2(Date DateP2) {
         this.DateP2 = DateP2;
     }
+
     public void setDateP(Date DateP) {
         this.DateP = DateP;
     }
@@ -80,56 +90,59 @@ public class ApOVDStat {
     public String getMiddleName() {
         return MiddleName;
     }
-    public String getArticle(){return Article;}
+
+    public String getArticle() { return Article; }
 
     public Date getBirthDay() {
         return BirthDay;
     }
+
     public Date getDateP() {
         return DateP;
     }
+
     public Integer getKol() {
         return Kol;
     }
+
     public Date getDateP2() {
         return DateP2;
     }
 
 
-    public static Comparator<ApOVDStat> CompKol = new Comparator<ApOVDStat>()
-    {
+    public static Comparator<ApOVDStat> CompKol = new Comparator<ApOVDStat>() {
         @Override
         public int compare(ApOVDStat o1, ApOVDStat o2) {
-            return (int) o1.getKol()-o2.getKol();
+            return (int) o1.getKol() - o2.getKol();
         }
     };
 
-    public static Comparator<ApOVDStat> CompLastName = new Comparator<ApOVDStat>()
-    {
+    public static Comparator<ApOVDStat> CompLastName = new Comparator<ApOVDStat>() {
         @Override
         public int compare(ApOVDStat o1, ApOVDStat o2) {
             return o1.getLastName().compareTo(o2.getLastName());
         }
     };
 
-    public static Comparator<ApOVDStat> CompDateP= new Comparator<ApOVDStat>()
-    {
+    public static Comparator<ApOVDStat> CompDateP = new Comparator<ApOVDStat>() {
         @Override
         public int compare(ApOVDStat o1, ApOVDStat o2) {
 
 
-            if (o1.getDateP().compareTo(o2.getDateP())==1)
-            {
+            if (o1.getDateP().compareTo(o2.getDateP()) == 1) {
                 return -1;
-            }
-             else if (o1.getDateP().equals(o2.getDateP()))
-            {
+            } else if (o1.getDateP().equals(o2.getDateP())) {
                 return 0;
+            } else {
+                return 1;
             }
-            else
-            {
-                return  1;
-            }
+        }
+    };
+
+    public static Comparator<ApOVDStat> CompArticle = new Comparator<ApOVDStat>() {
+        @Override
+        public int compare(ApOVDStat o1, ApOVDStat o2) {
+            return o1.getArticle().compareTo(o2.getArticle());
         }
     };
 

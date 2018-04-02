@@ -37,12 +37,12 @@ public class CreateWord {
         paragraphConfig.setItalic(true);
         paragraphConfig.setFontSize(25);
         paragraphConfig.setColor("06357a");
-        paragraphConfig.setText(lastname + firstname + middlename + birthday);
+        paragraphConfig.setText(lastname + " "+firstname +" "+ middlename + " "+birthday);
 
         XWPFTable table = document.createTable();
 
 
-        CTP ctpHeaderModel = createHeaderModel( lastname + firstname + middlename + birthday);
+        CTP ctpHeaderModel = createHeaderModel( lastname + " "+firstname +" "+ middlename +" "+ birthday);
 
         XWPFParagraph headerParagraph = new XWPFParagraph(ctpHeaderModel, document);
         headerFooterPolicy.createHeader(
@@ -55,14 +55,14 @@ public class CreateWord {
         tableRowOne.getCell(0).setText("№");
         tableRowOne.addNewTableCell().setText("Статья КоАП");
         tableRowOne.addNewTableCell().setText("Дата постановления об АП");
-        tableRowOne.addNewTableCell().setText("Место регестрации");
+        tableRowOne.addNewTableCell().setText("Место регистрации");
         tableRowOne.addNewTableCell().setText("Место проживания");
         tableRowOne.addNewTableCell().setText("Дата занесения в БД");
 
 
         for (int i = 0; i < apOVDs.size(); i++) {
             XWPFTableRow tableRow = table.createRow();
-            tableRow.getCell(0).setText(String.valueOf(i));
+            tableRow.getCell(0).setText(String.valueOf(i+1));
             tableRow.getCell(1).setText(apOVDs.get(i).getArticle());
             tableRow.getCell(2).setText(String.valueOf(apOVDs.get(i).getDateP()));
             tableRow.getCell(3).setText(apOVDs.get(i).getResAddr());
@@ -75,7 +75,7 @@ public class CreateWord {
            sett= settingsDao.getSetting(2);
 
 
-            FileOutputStream outputStream = new FileOutputStream(sett.getSettings()+lastname+".docx");
+            FileOutputStream outputStream = new FileOutputStream(sett.getSettings()+lastname + " "+firstname +" "+ middlename +" "+ birthday+".docx");
             document.write(outputStream);
             outputStream.close();
         } catch (IOException e) {

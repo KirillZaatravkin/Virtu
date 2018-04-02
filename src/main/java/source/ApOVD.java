@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class ApOVD {
 
-    String LastName, FirstName, MiddleName, FacktAddr, ResAddr, Article;
+    String LastName, FirstName, MiddleName, FacktAddr, ResAddr, Article,Cact;
     Date BirthDay, DateCreate, DateP;
     String PasportS, PasportN;
 
@@ -18,7 +18,10 @@ public class ApOVD {
     public void setFirstName(String FirstName) {
         this.FirstName = (FirstName);
     }
-
+    public void setCact(String Cact)
+    {
+        this.Cact=Cact;
+    }
     public void setLastName(String LastName) {
         this.LastName = LastName;
     }
@@ -49,6 +52,9 @@ public class ApOVD {
 
     public String getPasportN() {
         return PasportN;
+    }
+    public String getCact() {
+        return Cact;
     }
 
     public void setPasportS(String pasportS) {

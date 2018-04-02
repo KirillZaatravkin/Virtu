@@ -49,7 +49,7 @@ try{
             Date birthday = format.parse(STRbirthday);
             java.sql.Date SQLbirthday = new java.sql.Date(birthday.getTime());
             Filter filter = new Filter();
-            List<ApOVD> apOVDs = filter.FilterApOVD(lastname, firstname, middlename, SQLbirthday);
+            List<ApOVD> apOVDs = filter.Filter(lastname, firstname, middlename, SQLbirthday);
 
 
     %>
@@ -67,6 +67,7 @@ try{
         <thead>
         <tr>
             <th>Статья КоАП РФ</th>
+            <th>Часть статьи </th>
             <th>Дата АП</th>
             <th>Место прибывания согласно БД</th>
             <th>Место регистрации согласно БД</th>
@@ -81,6 +82,8 @@ try{
         <tr>
 
             <td><%=apOVDs.get(i).getArticle()%>
+             </td>
+            <td><%=apOVDs.get(i).getCact()%>
             </td>
             <td><%=apOVDs.get(i).getDateP()%>
             </td>
