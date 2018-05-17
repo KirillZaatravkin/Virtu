@@ -54,6 +54,7 @@ public class CreateWord {
         XWPFTableRow tableRowOne = table.getRow(0);
         tableRowOne.getCell(0).setText("№");
         tableRowOne.addNewTableCell().setText("Статья КоАП");
+        tableRowOne.addNewTableCell().setText("Часть статьи");
         tableRowOne.addNewTableCell().setText("Дата постановления об АП");
         tableRowOne.addNewTableCell().setText("Место регистрации");
         tableRowOne.addNewTableCell().setText("Место проживания");
@@ -64,10 +65,11 @@ public class CreateWord {
             XWPFTableRow tableRow = table.createRow();
             tableRow.getCell(0).setText(String.valueOf(i+1));
             tableRow.getCell(1).setText(apOVDs.get(i).getArticle());
-            tableRow.getCell(2).setText(String.valueOf(apOVDs.get(i).getDateP()));
-            tableRow.getCell(3).setText(apOVDs.get(i).getResAddr());
-            tableRow.getCell(4).setText(apOVDs.get(i).getFacktAddr());
-            tableRow.getCell(5).setText(String.valueOf(apOVDs.get(i).getDateCreate()));
+            tableRow.getCell(2).setText(apOVDs.get(i).getCact());
+            tableRow.getCell(3).setText(String.valueOf(apOVDs.get(i).getDateP()));
+            tableRow.getCell(4).setText(apOVDs.get(i).getResAddr());
+            tableRow.getCell(5).setText(apOVDs.get(i).getFacktAddr());
+            tableRow.getCell(6).setText(String.valueOf(apOVDs.get(i).getDateCreate()));
         }
         try {
             SettingsDao settingsDao =new SettingsDao();
@@ -123,7 +125,7 @@ public class CreateWord {
         XWPFTableRow tableRowOne1 = table1.getRow(0);
         tableRowOne1.getCell(0).setText("Общее кол-во правонарушений на текущий год");
         tableRowOne1.addNewTableCell().setText("Общее кол-во лиц, привлеченных к ответственности за текущий год");
-        tableRowOne1.addNewTableCell().setText("Выявлено правонарушителей-рецидивистов");
+        tableRowOne1.addNewTableCell().setText("Выявлено правонарушителей-рецидивистов по заданному поиску");
         XWPFTableRow tableRow1 = table1.createRow();
         tableRow1.getCell(0).setText(String.valueOf(kolNar));
         tableRow1.getCell(1).setText(String.valueOf(kolFace));
@@ -145,6 +147,7 @@ public class CreateWord {
         tableRowOne.addNewTableCell().setText("Отчество");
         tableRowOne.addNewTableCell().setText("Дата рождения");
         tableRowOne.addNewTableCell().setText("Статья КоАП");
+        tableRowOne.addNewTableCell().setText("Часть статьи");
         tableRowOne.addNewTableCell().setText("Дата последнего постановления");
         tableRowOne.addNewTableCell().setText("Кол-во АП");
 
@@ -157,8 +160,9 @@ public class CreateWord {
             tableRow.getCell(3).setText(apOVDs.get(i).getMiddleName());
             tableRow.getCell(4).setText(String.valueOf(apOVDs.get(i).getBirthDay()));
             tableRow.getCell(5).setText(apOVDs.get(i).getArticle());
-            tableRow.getCell(6).setText(String.valueOf(apOVDs.get(i).getDateP()));
-            tableRow.getCell(7).setText(String.valueOf(apOVDs.get(i).getKol()));
+            tableRow.getCell(6).setText(apOVDs.get(i).getCact());
+            tableRow.getCell(7).setText(String.valueOf(apOVDs.get(i).getDateP()));
+            tableRow.getCell(8).setText(String.valueOf(apOVDs.get(i).getKol()));
         }
         try {
             SettingsDao settingsDao =new SettingsDao();

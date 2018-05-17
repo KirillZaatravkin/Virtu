@@ -78,7 +78,6 @@
             </div>
 
     </div>
-        <p><label style="font-size: 14px"><b>*Все поля обязательны для заполнения</b></label></p>
         <button id="but_ok" type="submit" name="save" onclick="mydate();">Искать</button>
         <button id="but_ok" type="reset" >Очистить поля </button>
 
@@ -128,10 +127,10 @@
               }
 
 
-    %>
+   %>
 
 
-    <label id="lab_big">Правонарушители</label>
+    <label id="lab_big">Правонарушители </label>
     <table border=1>
         <thead>
         <tr>
@@ -162,7 +161,7 @@
             </form>
             </td>
 
-        </tr>
+        </tr>.
         <%
 
             }
