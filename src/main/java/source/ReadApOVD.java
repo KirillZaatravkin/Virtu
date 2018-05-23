@@ -111,8 +111,8 @@ System.out.println("j");
                 ps.setString(1, toUpperCase(apOVDList.get(i).getFirstName()));
                 ps.setString(2, toUpperCase(apOVDList.get(i).getLastName()));
                 ps.setString(3, toUpperCase(apOVDList.get(i).getMiddleName()));
-                ps.setString(4, apOVDList.get(i).getFacktAddr());
-                ps.setString(5, apOVDList.get(i).getResAddr());
+                ps.setString(4, toUpperCase(apOVDList.get(i).getFacktAddr()));
+                ps.setString(5, toUpperCase(apOVDList.get(i).getResAddr()));
                 ps.setString(6, apOVDList.get(i).getArticle());
 
 

@@ -46,7 +46,7 @@ public class ApGIBDD {
     }
 
     public void setVodUd(String VodUd) {
-        VodUd = VodUd;
+        this.VodUd = VodUd;
     }
 
     public void setDaterCreate (Date DateCreate)
@@ -74,7 +74,9 @@ public class ApGIBDD {
         return FacktAddr;
     }
 
-       public String getArticle() {
+
+
+    public String getArticle() {
         return Article;
     }
 

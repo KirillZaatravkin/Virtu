@@ -38,12 +38,7 @@
               <p><c:out value="${m}"/></p></div>
       </a>
    </div>
-     <div id="analiz_left">
-         <a href="preloader?interval=lastload">
-          <div id="analiz">Анализ посдедней выгрузки
-         <p><c:out value="${l}"/></p></div>
-         </a>
-     </div>
+
 
      </div>
     </div>

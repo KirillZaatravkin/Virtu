@@ -18,6 +18,7 @@
 <%@ page import="static jdk.nashorn.internal.objects.NativeString.toUpperCase" %>
 <%@ page import="source.system.model.Settings" %>
 <%@ page import="source.system.dao.SettingsDao" %>
+<%@ page import="source.system.model.ApGIBDD" %>
 
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <html>
@@ -49,10 +50,12 @@ try{
             Date birthday = format.parse(STRbirthday);
             java.sql.Date SQLbirthday = new java.sql.Date(birthday.getTime());
             Filter filter = new Filter();
-            List<ApOVD> apOVDs = filter.Filter(lastname, firstname, middlename, SQLbirthday);
-
+            List<ApOVD> apOVDs = filter.EchoFaceOVD(lastname, firstname, middlename, SQLbirthday);
+            List<ApGIBDD> apGIBDDs = filter.EchoFaceGIBDD(lastname, firstname, middlename, SQLbirthday);
 
     %>
+
+
     <label id="lab_name"><%= lastname%>
     </label>
     <label id="lab_name"><%= firstname%>
@@ -61,6 +64,21 @@ try{
     </label>
     <p><label><b><%= STRbirthday%>
     </b> года рождения. </label></p>
+
+    <form action="/createword" method="post">
+        <input type="hidden" name="list" value="1">
+        <input type="hidden" name="lastname" value=<%=lastname%>>
+        <input type="hidden" name="firstname" value=<%=firstname%>>
+        <input type="hidden" name="middlename" value=<%=middlename%>>
+        <input type="hidden" name="birthday" value=<%=STRbirthday%>>
+        <button type="submit"> Сгенерировать отчет</button>
+        <label id="lab">Папка , в которую будет помещен отчет : <%=sett.getSettings()%></label>
+    </form>
+    </tbody>
+    </table>
+
+    <%if(apOVDs.size()>0) {%>
+
     <p><label>Информация из баз ОВД: </label></p>
 
     <table border=1>
@@ -94,26 +112,52 @@ try{
             <td><%= apOVDs.get(i).getDateCreate()%>
             </td>
         </tr>
-        <%
-            }
-       %>
-        <form action="/createword" method="post">
-            <input type="hidden" name="list" value="1">
-            <input type="hidden" name="lastname" value=<%=lastname%>>
-            <input type="hidden" name="firstname" value=<%=firstname%>>
-            <input type="hidden" name="middlename" value=<%=middlename%>>
-            <input type="hidden" name="birthday" value=<%=STRbirthday%>>
-            <button type="submit"> Сгенерировать отчет</button>
-            <label id="lab">Папка , в которую будет помещен отчет : <%=sett.getSettings()%></label>
-        </form>
 
         <%
-
-            }
-        %>
+            }%>
         </tbody>
     </table>
+            <%
+      }
 
+      if(apGIBDDs.size()>0) {%>
+
+        <p><label>Информация из баз ГИБДД : </label></p>
+
+        <table border=1>
+            <thead>
+            <tr>
+                <th>Статья КоАП РФ</th>
+                <th>Часть статьи </th>
+                <th>Дата АП</th>
+                <th>Место прибывания согласно БД</th>
+                <th>Дата загрузки в БД</th>
+            </tr>
+            </thead>
+            <tbody>
+                <%
+            for (int i = 0; i < apGIBDDs.size(); i++) {
+
+        %>
+            <tr>
+
+                <td><%=apGIBDDs.get(i).getArticle()%></td>
+                <td><%=apGIBDDs.get(i).getCact()%></td>
+                <td><%=apGIBDDs.get(i).getDateP()%></td>
+                <td><%= apGIBDDs.get(i).getFacktAddr()%>
+                <td><%= apGIBDDs.get(i).getDateCreate()%>
+                </td>
+            </tr>
+
+
+                <%
+            }%>
+                <tbody>
+        </table>
+    <%
+         }
+      }
+   %>
 </div>
 <%@ include file="footer.jsp" %>
 </body>
@@ -122,5 +166,5 @@ try{
 {
     %>
 <script>window.location("/statresediv")</script>
-<%
-}%>
+<%}
+%>

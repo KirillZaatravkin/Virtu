@@ -16,18 +16,21 @@ import org.apache.poi.xwpf.model.XWPFHeaderFooterPolicy;
 import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 import source.system.dao.SettingsDao;
+import source.system.model.ApGIBDD;
+import source.system.model.ApGIBDDStat;
 import source.system.model.Settings;
 
 
 public class CreateWord {
 
-    public void ApOVDWord(List<ApOVD> apOVDs) {
+    public void WordFindFace(List<ApOVD> apOVDs,List<ApGIBDD> apGIBDDs) {
         String lastname = apOVDs.get(0).getLastName();
         String firstname = apOVDs.get(0).getFirstName();
         String middlename = apOVDs.get(0).getMiddleName();
         String birthday = String.valueOf(apOVDs.get(0).getBirthDay());
 
         XWPFDocument document = new XWPFDocument();
+
         CTSectPr ctSectPr = document.getDocument().getBody().addNewSectPr();
         XWPFHeaderFooterPolicy headerFooterPolicy = new XWPFHeaderFooterPolicy(document, ctSectPr);
 
@@ -59,9 +62,10 @@ public class CreateWord {
         tableRowOne.addNewTableCell().setText("Место регистрации");
         tableRowOne.addNewTableCell().setText("Место проживания");
         tableRowOne.addNewTableCell().setText("Дата занесения в БД");
+        tableRowOne.addNewTableCell().setText("Примечание");
 
-
-        for (int i = 0; i < apOVDs.size(); i++) {
+        int i;
+        for (  i = 0; i < apOVDs.size(); i++) {
             XWPFTableRow tableRow = table.createRow();
             tableRow.getCell(0).setText(String.valueOf(i+1));
             tableRow.getCell(1).setText(apOVDs.get(i).getArticle());
@@ -70,7 +74,22 @@ public class CreateWord {
             tableRow.getCell(4).setText(apOVDs.get(i).getResAddr());
             tableRow.getCell(5).setText(apOVDs.get(i).getFacktAddr());
             tableRow.getCell(6).setText(String.valueOf(apOVDs.get(i).getDateCreate()));
+            tableRow.getCell(7).setText("Согласно данным ОВД");
         }
+
+
+
+        for (int j = 0; j < apGIBDDs.size(); j++) {
+            XWPFTableRow tableRow = table.createRow();
+            tableRow.getCell(0).setText(String.valueOf(i+1));
+            tableRow.getCell(1).setText(apGIBDDs.get(j).getArticle());
+            tableRow.getCell(2).setText(apGIBDDs.get(j).getCact());
+            tableRow.getCell(3).setText(String.valueOf(apGIBDDs.get(j).getDateP()));
+            tableRow.getCell(5).setText(apGIBDDs.get(j).getFacktAddr());
+            tableRow.getCell(6).setText(String.valueOf(apGIBDDs.get(j).getDateCreate()));
+            tableRow.getCell(7).setText("Согласно данным ГИБДД");
+        }
+
         try {
             SettingsDao settingsDao =new SettingsDao();
             Settings sett=new Settings();
@@ -102,7 +121,7 @@ public class CreateWord {
     }
 
 
-    public void Resediv (List<ApOVDStat> apOVDs, int kolNar, int kolFace, int kolRes) {
+    public void Resediv (List<ApOVDStat> apOVDs,   List<ApGIBDDStat> apGIBDDs, int kolNar, int kolFace, int kolRes) {
 
         Date date=new Date();
         DateFormat dateFormat = SimpleDateFormat.getDateInstance(SimpleDateFormat.SHORT);
@@ -150,9 +169,10 @@ public class CreateWord {
         tableRowOne.addNewTableCell().setText("Часть статьи");
         tableRowOne.addNewTableCell().setText("Дата последнего постановления");
         tableRowOne.addNewTableCell().setText("Кол-во АП");
-
+        tableRowOne.addNewTableCell().setText("Примичание");
 
         for (int i = 0; i < apOVDs.size(); i++) {
+            String s="Согласно базам ОВД";
             XWPFTableRow tableRow = table.createRow();
             tableRow.getCell(0).setText(String.valueOf(i+1));
             tableRow.getCell(1).setText(apOVDs.get(i).getLastName());
@@ -163,7 +183,25 @@ public class CreateWord {
             tableRow.getCell(6).setText(apOVDs.get(i).getCact());
             tableRow.getCell(7).setText(String.valueOf(apOVDs.get(i).getDateP()));
             tableRow.getCell(8).setText(String.valueOf(apOVDs.get(i).getKol()));
+            tableRow.getCell(9).setText(s);
         }
+        for (int i = 0; i < apGIBDDs.size(); i++) {
+            String s="Согласно базам ГИБДД";
+            XWPFTableRow tableRow = table.createRow();
+            tableRow.getCell(0).setText(String.valueOf(i+1));
+            tableRow.getCell(1).setText(apGIBDDs.get(i).getLastName());
+            tableRow.getCell(2).setText(String.valueOf(apGIBDDs.get(i).getFirstName()));
+            tableRow.getCell(3).setText(apGIBDDs.get(i).getMiddleName());
+            tableRow.getCell(4).setText(String.valueOf(apGIBDDs.get(i).getBirthDay()));
+            tableRow.getCell(5).setText(apGIBDDs.get(i).getArticle());
+            tableRow.getCell(6).setText(apGIBDDs.get(i).getCact());
+            tableRow.getCell(7).setText(String.valueOf(apGIBDDs.get(i).getDateP()));
+            tableRow.getCell(8).setText(String.valueOf(apGIBDDs.get(i).getKol()));
+            tableRow.getCell(9).setText(s);
+        }
+
+
+
         try {
             SettingsDao settingsDao =new SettingsDao();
             Settings sett=new Settings();

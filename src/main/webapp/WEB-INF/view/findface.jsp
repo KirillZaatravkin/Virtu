@@ -6,6 +6,7 @@
 <%@ page import="java.text.ParseException" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.apache.xmlbeans.impl.xb.xsdschema.SimpleRestrictionType" %>
+<%@ page import="source.system.model.ApGIBDDStat" %>
 
 
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
@@ -86,6 +87,7 @@
     <%  request.setCharacterEncoding("UTF-8");
         String on=request.getParameter("on");
         List<ApOVDStat> apOVDs=new ArrayList<ApOVDStat>();
+        List <ApGIBDDStat> apGIBDDs=new ArrayList<ApGIBDDStat>();
         java.sql.Date SQLbirthday=null;
         System.out.print(SQLbirthday);
         String lastname = (request.getParameter("lastname"));
@@ -116,21 +118,24 @@
                 if ((firstname != "%" || middlename != "%" || lastname != "%") && (on!=null))
                 {
                     Filter filter = new Filter();
-                    apOVDs = filter.FilterApOVD(lastname, firstname, middlename, SQLbirthday);
+                    apOVDs = filter.FindFaceOVD(lastname, firstname, middlename, SQLbirthday);
+                    apGIBDDs= filter.FindFaceGIBDD(lastname,firstname, middlename, SQLbirthday);
                 }
 
 
               if ((firstname != "%" || middlename != "%" || lastname != "%") && (on==null))
               {
                  Filter filter = new Filter();
-                 apOVDs = filter.FilterApOVD(lastname, firstname, middlename, null);
+                 apOVDs = filter.FindFaceOVD(lastname, firstname, middlename, null);
+                  apGIBDDs= filter.FindFaceGIBDD(lastname,firstname, middlename, null);
               }
 
-
+if(apOVDs.size()>0)
+{
    %>
 
 
-    <label id="lab_big">Правонарушители </label>
+    <label id="lab_big">Правонарушители из баз ОВД</label>
     <table border=1>
         <thead>
         <tr>
@@ -161,15 +166,61 @@
             </form>
             </td>
 
-        </tr>.
+        </tr>
         <%
 
             }
         %>
         </tbody>
     </table>
+
+<% }
+
+if(apGIBDDs.size()>0)
+{
+    System.out.println("fghdf");
+%>
+
+<label id="lab_big">Правонарушители из баз ГИБДД</label>
+<table border=1>
+    <thead>
+    <tr>
+
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Дата рождения</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+        for (int i = 0; i < apGIBDDs.size(); i++) {
+
+    %>
+    <tr>
+        <td><%=apGIBDDs.get(i).getLastName()%></td>
+        <td><%= apGIBDDs.get(i).getFirstName()%></td>
+        <td><%= apGIBDDs.get(i).getMiddleName()%></td>
+        <td><%= apGIBDDs.get(i).getBirthDay()%></td>
+        <td> <form method="post" action="/echofilter">
+            <input type="hidden" value=<%=apGIBDDs.get(i).getLastName()%> name="lastname">
+            <input type="hidden" value=<%=apGIBDDs.get(i).getFirstName()%> name="firstname">
+            <input type="hidden" value=<%=apGIBDDs.get(i).getMiddleName()%> name="middlename">
+            <input type="hidden" value=<%=apGIBDDs.get(i).getBirthDay()%> name="birthday">
+            <button type="submit">Подробно о грaжданине</button>
+        </form>
+        </td>
+
+    </tr>
+    <%
+
+        }
+    %>
+    </tbody>
+</table>
+
+<% }%>
 </div>
-
-
 <%@ include file="footer.jsp" %>
 </body>

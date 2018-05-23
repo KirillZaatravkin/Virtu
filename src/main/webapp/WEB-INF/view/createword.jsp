@@ -3,6 +3,7 @@
 <%@ page import="source.Filter" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="static jdk.nashorn.internal.objects.NativeString.toUpperCase" %>
+<%@ page import="source.system.model.ApGIBDD" %>
 
 
 <% request.setCharacterEncoding("UTF-8");
@@ -21,11 +22,15 @@
 
 
 
-        List<ApOVD> apOVDs = filter.Filter(lastname, firstname, middlename, SQLbirthday);
-        if (apOVDs.size() > 0) {
-        CreateWord cw= new CreateWord();
-        cw.ApOVDWord(apOVDs);
-        %>
+        List<ApOVD> apOVDs = filter.EchoFaceOVD(lastname, firstname, middlename, SQLbirthday);
+        List<ApGIBDD> apGIBDDs = filter.EchoFaceGIBDD(lastname, firstname, middlename, SQLbirthday);
+
+        if(apOVDs.size()>0 || apGIBDDs.size()>0)
+        {
+               CreateWord cw= new CreateWord();
+               cw.WordFindFace(apOVDs,apGIBDDs);
+%>
+
 <script>history.go(-1)</script><%
         }
         else

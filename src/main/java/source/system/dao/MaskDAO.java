@@ -123,6 +123,43 @@ public class MaskDAO {
 
     }
 
+    public String getTitle(String maska) {
+        Connection connection = DbConnect.getConnection();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        String title="";
+
+        try {
+            statement = connection.prepareStatement("select * from mask where mask=? limit 1");
+            statement.setString(1, maska);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                title=rs.getString("title");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        DbConnect.close(connection);
+        return title;
+
+    }
+
 
     public void updateMask(Mask mask) {
 

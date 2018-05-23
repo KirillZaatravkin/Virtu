@@ -15,7 +15,7 @@ import static source.ApOVDStat.*;
 /**
  * Created by кирюха on 19.11.2017.
  */
-public class StatResediv {
+public class StatResedivOVD {
 
 
     private Connection connection;
@@ -44,7 +44,7 @@ public class StatResediv {
 
 
             } if (article != null) {
-                statement = connection.prepareStatement("select count(id) as kol,cact, pasportn,pasports,lastname, firstname, birthday, middlename, article , max(datep) as md ,  max(datep) - INTERVAL '365 day' as md2 from ap_ovd WHERE resaddr LIKE ? and  cact=? and datep BETWEEN  ? and ? and article =?  group by lastname, cact, firstname, middlename, birthday, article , pasports,pasportn  ;");statement.setString(1, regionMask);
+                statement = connection.prepareStatement("select count(id) as kol,cact, pasportn,pasports,lastname, firstname, birthday, middlename, article , max(datep) as md ,  max(datep) - INTERVAL '365 day' as md2 from ap_ovd WHERE resaddr LIKE ? and  cact like ? and datep BETWEEN  ? and ? and article =?  group by lastname, cact, firstname, middlename, birthday, article , pasports,pasportn  ;");statement.setString(1, regionMask);
                     statement.setString(1, regionMask);
                 statement.setString(2, cact);
                 statement.setDate(3, d1);
@@ -198,7 +198,7 @@ public class StatResediv {
             PreparedStatement statement2 = null;
             ResultSet rs2 = null;
             try {
-                statement2 = connection.prepareStatement("select count(id) as kol, lastname, firstname, birthday, middlename, article, cact  from ap_ovd WHERE  datep BETWEEN ? and ? and article =?  and cact=? and lastname=? and firstname=? and middlename=? and birthday=? group by cact, lastname, firstname, middlename, birthday, article HAVING count(id)>1 order by kol dESC ;");
+                statement2 = connection.prepareStatement("select count(id) as kol, lastname, firstname, birthday, middlename, article, cact  from ap_ovd WHERE  datep BETWEEN ? and ? and article =?  and cact=? and lastname=? and firstname=? and middlename=? and birthday=? group by cact, lastname, firstname, middlename, birthday, article HAVING count(id)>=2 order by kol dESC ;");
             } catch (SQLException e) {
                 e.printStackTrace();
                 return;
@@ -271,7 +271,7 @@ public class StatResediv {
 
 
 
-public int KolNarush(String article, java.sql.Date d1, java.sql.Date d2,boolean flag) {
+public int KolNarush(String article, String mask, java.sql.Date d1, java.sql.Date d2,boolean flag) {
 
         connection = DbConnect.getConnection();
          int kol=0;
@@ -281,15 +281,17 @@ public int KolNarush(String article, java.sql.Date d1, java.sql.Date d2,boolean 
 
         try {
             if (article == null  && flag== false) {
-                statement = connection.prepareStatement("select count(id) as kol from ap_ovd where datep BETWEEN  ? and ?   ;");
-                statement.setDate(1, d1);
-                statement.setDate(2, d2);
+                statement = connection.prepareStatement("select count(id) as kol from ap_ovd where facktaddr like ? and  datep BETWEEN  ? and ?   ;");
+                statement.setString(1,mask);
+                statement.setDate(2, d1);
+                statement.setDate(3, d2);
 
             }  if(article != null  && flag== false){
-                statement = connection.prepareStatement("select count(id) as kol from ap_ovd WHERE datep BETWEEN  ? and ? and article =? ;");
-                statement.setDate(1, d1);
-                statement.setDate(2, d2);
-                statement.setString(3, article);
+                statement = connection.prepareStatement("select count(id) as kol from ap_ovd WHERE facktaddr like ? and datep BETWEEN  ? and ? and article =? ;");
+                statement.setString(1,mask);
+                statement.setDate(2, d1);
+                statement.setDate(3, d2);
+                statement.setString(4, article);
             }
             if (article == null  && flag== true) {
                 statement = connection.prepareStatement("select count(id) as kol from ap_ovd where EXTRACT (YEAR from datep)= EXTRACT (YEAR FROM now())   ;");
@@ -336,7 +338,7 @@ public int KolNarush(String article, java.sql.Date d1, java.sql.Date d2,boolean 
 
 
 
-    public int KolFace(String article, java.sql.Date d1, java.sql.Date d2,boolean flag) {
+    public int KolFace(String article, String mask, java.sql.Date d1, java.sql.Date d2,boolean flag) {
 
         connection = DbConnect.getConnection();
         int kf=0;
@@ -346,15 +348,17 @@ public int KolNarush(String article, java.sql.Date d1, java.sql.Date d2,boolean 
 
         try {
             if (article == null  && flag== false) {
-                statement = connection.prepareStatement("select count(DISTINCT(pasportn,pasports)) as kf from ap_ovd where datep BETWEEN  ? and ?   ;");
-                statement.setDate(1, d1);
-                statement.setDate(2, d2);
+                statement = connection.prepareStatement("select count(DISTINCT(pasportn,pasports)) as kf from ap_ovd where  facktaddr like ? and datep BETWEEN  ? and ?   ;");
+                statement.setString(1,mask);
+                statement.setDate(2, d1);
+                statement.setDate(3, d2);
 
             }  if(article != null  && flag== false){
-                statement = connection.prepareStatement("select count(DISTINCT(pasportn,pasports)) as kf from ap_ovd WHERE datep BETWEEN  ? and ? and article =? ;");
-                statement.setDate(1, d1);
-                statement.setDate(2, d2);
-                statement.setString(3, article);
+                statement = connection.prepareStatement("select count(DISTINCT(pasportn,pasports)) as kf from ap_ovd WHERE facktaddr like ? and datep BETWEEN  ? and ? and article =? ;");
+                statement.setString(1,mask);
+                statement.setDate(2, d1);
+                statement.setDate(3, d2);
+                statement.setString(4, article);
             }
             if (article == null  && flag== true) {
                 statement = connection.prepareStatement("select count(DISTINCT(pasportn,pasports)) as kf from ap_ovd where EXTRACT (YEAR from datep)= EXTRACT (YEAR FROM now())   ;");

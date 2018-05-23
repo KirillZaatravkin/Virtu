@@ -17,6 +17,7 @@
 <%@ page import="source.system.model.Mask" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="source.system.dao.MaskDAO" %>
+<%@ page import="source.system.model.ApGIBDDStat" %>
 
 <%
     if (session.getAttribute("login") == null) {
@@ -97,13 +98,11 @@
 
 
     <form action="statresediv" method="POST" name="filter">
-        <div id="kol" ">
+        <div id="kol">
 
             <div id="lab_big" >
                 <label >Данные для поиска</label>
-            </div>           <p></p>
-
-
+            </div>
 
             <div id="left_kol">
 
@@ -128,8 +127,12 @@
                         %>
                     </select>
                 </div>
-
-            </div>
+                <div>
+                    <p><label id="lab">Выбор баз данных</label></p>
+                    <p><input type="checkbox" name="ovd" value="ovd">ОВД</p>
+                    <p><input type="checkbox" name="gibdd" value="gibdd">ГИБДД</p>
+                </div>
+                        </div>
 
             <div id="right_kol">
                 <div><label id="lab">Отчетный период</label></div>
@@ -147,20 +150,21 @@
 
 
             </div>
-
         </div>
-        <label>Сгенерировать отчет</label><input type="checkbox" name="doc"  checked value="doc">
+         <label>Сгенерировать отчет</label><input type="checkbox" name="doc"  checked value="doc">
         <button id="but_ok" type="submit" name="save" onclick="mydate();">Искать</button>
         <button id="but_ok" type="reset" >Очистить поля </button>
 
 
     </form>
+
     <%
 
         System.out.print(request.getParameter("d2"));
         String article =  null;
         String cact=null;
-        StatResediv sr = new StatResediv();
+        StatResedivOVD sr = new StatResedivOVD();
+        StatResedivGIBDD sg=new StatResedivGIBDD();
         String sort=request.getParameter("sort");
         article=request.getParameter("article");
         cact=request.getParameter("cact");
@@ -188,34 +192,44 @@
                 Date d2 = format.parse(STRd2);
                 java.sql.Date SQLd2 = new java.sql.Date(d2.getTime());
 
-                List <ApOVDStat> apOVDStats =sr.FilterStat(article, SQLd1, SQLd2,sort,"found",cact,regionMask);
-                int kolNarush=sr.KolNarush(article, SQLd1, SQLd2,false);
-                int kolFace=sr.KolFace(article, SQLd1, SQLd2,false);
-                int kolRes = apOVDStats.size();
+                List<ApOVDStat> apOVDStats=new ArrayList<ApOVDStat>();
+                List <ApGIBDDStat> apGIBDDStat= new ArrayList<ApGIBDDStat>();
+                int kolNarush=0;
+                int kolFace=0;
+                int kolRes=0;
+                if(request.getParameter("ovd")!=null)
+                {
+                    apOVDStats = sr.FilterStat(article, SQLd1, SQLd2, sort, "found", cact, regionMask);
+                   kolNarush=kolNarush+sr.KolNarush(article, regionMask, SQLd1, SQLd2,false);
+                   kolFace=kolFace+sr.KolFace(article, regionMask, SQLd1, SQLd2,false);
+                   kolRes = kolRes+apOVDStats.size();
 
+                }
+                if (request.getParameter("gibdd")!=null) {
+                apGIBDDStat = sg.FilterStat(article, SQLd1, SQLd2, sort, "found", cact, regionMask);
+                    kolNarush=kolNarush+sg.KolNarush(article,regionMask, SQLd1, SQLd2,false);
+                    kolFace=kolFace+sg.KolFace(article, regionMask, SQLd1, SQLd2,false);
+                    kolRes = kolRes+apGIBDDStat.size();
+                }
 
                 if(request.getParameter("doc")!=null)
                 {
 
                     CreateWord cw= new CreateWord();
-                    cw.Resediv(apOVDStats,kolNarush,kolFace,kolRes);
+                    cw.Resediv(apOVDStats,apGIBDDStat,kolNarush,kolFace,kolRes);
                 }
                 %>
 
+<label id="lab_big">Выборка за <%=SQLd1%> - <%=SQLd2%> по <%=maskDAO.getTitle(regionMask)%></label>
 
-
-
-
-<label id="lab_big">Выборка за <%=SQLd1%> - <%=SQLd2%></label>
-
-    <label id="lab_big">Общая сводка</label>
+  <p><label id="lab_big">Общая сводка</label></p>
 
     <table border=1>
         <thead>
         <tr>
 
-            <th>Общее кол-во правонарушений на текущий период</th>
-            <th>Общее кол-во лиц, привлеченных к ответственности за текущий период</th>
+            <th>Общее кол-во правонарушений на заданный периодна данной территории</th>
+            <th>Общее кол-во лиц, привлеченных к ответственности на заданный период на данной территории</th>
             <th>Выявлено правонарушителей-рецидивистов по заданному поиску</th>
 
         </tr>
@@ -228,8 +242,8 @@
         </tr>
         </tbody>
     </table>
-
-    <label id="lab_big">Правонарушители-рецидивисты</label>
+<% if (apOVDStats.size()>0) {%>
+    <label id="lab_big">Правонарушители-рецидивисты (данные согласно базам ОВД)</label>
     <table border=1>
         <thead>
         <tr>
@@ -273,8 +287,55 @@
         %>
         </tbody>
     </table>
+<%}
+
+if(apGIBDDStat.size()>0){
+%>
+
+<label id="lab_big">Правонарушители-рецидивисты (данные согласно базам ГИБДД)</label>
+<table border=1>
+    <thead>
+    <tr>
+
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Дата рождения</th>
+        <th>Статья</th>
+        <th>Часть</th>
+        <th>Кол-во незакрытых правонарушений</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+        for (int i = 0; i < apGIBDDStat.size(); i++) {
+
+    %>
+    <tr>
+        <td><%=apGIBDDStat.get(i).getLastName()%></td>
+        <td><%= apGIBDDStat.get(i).getFirstName()%></td>
+        <td><%= apGIBDDStat.get(i).getMiddleName()%></td>
+        <td><%= apGIBDDStat.get(i).getBirthDay()%></td>
+        <td><%= apGIBDDStat.get(i).getArticle()%></td>
+        <td><%= apGIBDDStat.get(i).getCact()%></td>
+        <td><%= apGIBDDStat.get(i).getKol()%></td>
+        <td> <form method="post" action="/echofilter">
+            <input type="hidden" value=<%=apGIBDDStat.get(i).getLastName()%> name="lastname">
+            <input type="hidden" value=<%=apGIBDDStat.get(i).getFirstName()%> name="firstname">
+            <input type="hidden" value=<%=apGIBDDStat.get(i).getMiddleName()%> name="middlename">
+            <input type="hidden" value=<%=apGIBDDStat.get(i).getBirthDay()%> name="birthday">
+            <button type="submit">Подробно о гржданине</button>
+        </form>
+        </td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>
+    <%}%>
 </div>
-<%}} catch (ParseException e){
+<%}
+        } catch (ParseException e){
 
 }%>
 <%@ include file="footer.jsp" %>

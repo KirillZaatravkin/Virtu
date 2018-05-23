@@ -18,6 +18,12 @@ public class MainController {
 
         return "apovd";
     }
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST},path = "/gibdd")
+    public String gibdd (Model model)
+    {
+
+        return "gibdd";
+    }
 
     @RequestMapping(path = "/createword")
     public String createword (Model model)
