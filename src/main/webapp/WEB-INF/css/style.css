@@ -239,5 +239,29 @@
     background: linear-gradient(to bottom, #fcfff4, #e9e9ce);
     color: #a00;
 }
+#main_block {
+    clear: both;
+    background-color: #7da7ff;
+    width: 100%;
+    text-align: center;
+    font-family: "Times New Roman";
+    font-size: 29px;
+    color: #e01e0a;
+    font-style: italic;
+}
+
+#sub {
+    color: #fff7f4;
+    font-size: 13px;
+    background-color: #e01e0a;
+    border: 3px solid #e01e0a;
+
+}
+
+#sub:hover{
+    color: #e01e0a;
+    border: 3px solid #0023ff;
+    background-color: #0023ff;
+}
 
 

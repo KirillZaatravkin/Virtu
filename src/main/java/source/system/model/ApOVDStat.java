@@ -1,7 +1,4 @@
-package source;
-
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import sun.util.locale.LocaleUtils;
+package source.system.model;
 
 import java.util.Comparator;
 import java.util.Date;
@@ -14,9 +11,9 @@ public class ApOVDStat {
 
     String LastName;
     String FirstName;
-    String MiddleName;
+    String MiddleName, FacktAddr;
     String Article;
-    String Cact;
+    String Cact ;
     String PaspotrS;
     String PasportN;
     Date BirthDay, DateP, DateP2;
@@ -30,12 +27,20 @@ public class ApOVDStat {
         return PasportN;
     }
 
+    public String getFacktAddr() {
+        return FacktAddr;
+    }
+
     public String getCact() {
         return Cact;
     }
 
     public void setCact(String Cact) {
         this.Cact = Cact;
+    }
+
+    public void setFacktAddr(String FacktAddr) {
+        this.FacktAddr = FacktAddr;
     }
 
     public void setPasportN(String pasportN) {

@@ -5,11 +5,9 @@ import java.util.Date;
 /**
  * Created by кирюха on 17.05.2018.
  */
-public class ApGIBDD {
-    String LastName, FirstName, MiddleName, FacktAddr, Article, Cact, ProtokolN, Nakaz;
-    Date BirthDay, DateCreate, DateP, DatePost,DateZak;
-    String VodUd;
-
+public class ApPrist {
+    String LastName, FirstName, MiddleName, FacktAddr, Article, Cact, PasportS, PasportN, Nakaz;
+    Date BirthDay, DateCreate, DateP, DateZak;
 
     public void setFirstName(String FirstName) {
         this.FirstName = (FirstName);
@@ -23,15 +21,12 @@ public class ApGIBDD {
         this.Nakaz = Nakaz;
     }
 
-
-    public void setVodUd(String VodUd) {   this.VodUd = VodUd; }
+    public void setDateZak(Date DateZak) {
+        this.DateZak = DateZak;
+    }
 
     public void setLastName(String LastName) {
         this.LastName = LastName;
-    }
-
-    public void setProtokolN(String ProtokolN) {
-        this.ProtokolN = ProtokolN;
     }
 
     public void setMiddleName(String MiddleName) {
@@ -50,29 +45,29 @@ public class ApGIBDD {
         this.BirthDay = BirthDay;
     }
 
-    public void setDateZak(Date DateZak) {
-        this.DateZak = DateZak;
+    public String getPasportS() {
+        return PasportS;
     }
 
-    public void setDatePost(Date DatePost) {
-        this.DatePost = DatePost;
-    }
-
-    public String getVodUd() {
-        return VodUd;
+    public String getPasportN() {
+        return PasportN;
     }
 
     public String getCact() {
         return Cact;
     }
 
-    public String getNakaz() {
-        return Nakaz;
+    public String getNakaz() { return Nakaz  ; }
+
+    public Date getDateZak() { return DateZak; }
+
+    public void setPasportS(String PasportS) {
+        this.PasportS = PasportS;
     }
 
-    public String getProtokolN() { return ProtokolN;
+    public void setPasportN(String PasportN) {
+        this.PasportN = PasportN;
     }
-
 
     public void setDaterCreate(Date DateCreate) {
         this.DateCreate = DateCreate;
@@ -112,13 +107,5 @@ public class ApGIBDD {
 
     public Date getDateP() {
         return DateP;
-    }
-
-    public Date getDatePost() {
-        return DatePost;
-    }
-
-    public Date getDateZak() {
-        return DateZak;
     }
 }

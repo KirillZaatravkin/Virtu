@@ -26,6 +26,7 @@
 <body>
 <%@ include file="header.jsp" %>
 <%@ include file="sidebar.jsp" %>
+<div id="main_block">Анализ</div>
 <div id="post">
     <div style="width: 690px">
   <div id="analiz_right">

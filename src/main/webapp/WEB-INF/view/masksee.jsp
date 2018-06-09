@@ -20,9 +20,11 @@
 <body>
 <%@ include file="header.jsp" %>
 <%@ include file="sidebar.jsp" %>
+<div id="main_block">Настройка</div>
 
 <div id="post">
     <%@ include file="vertsidebar.jsp" %>
+    <p><label id="lab_big">Настройка поиска</label></p>
     <p><a id="button_href" href="/maskadd">Добавить маску</a></p>
     <label>Активные маски</label>
 

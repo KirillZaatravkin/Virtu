@@ -24,11 +24,11 @@
 </head>
 <%@ include file="header.jsp" %>
 <%@ include file="sidebar.jsp" %>
-
+<div id="main_block">Настройка</div>
 
 <div id="post">
     <%@ include file="vertsidebar.jsp" %>
-    <label>Настройки</label>
+    <p><label id="lab_big">Настройки share</label></p>
     <table border=1>
         <thead>
         <tr>

@@ -25,6 +25,13 @@ public class MainController {
         return "gibdd";
     }
 
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST},path = "/prist")
+    public String prist (Model model)
+    {
+
+        return "prist";
+    }
+
     @RequestMapping(path = "/createword")
     public String createword (Model model)
     {

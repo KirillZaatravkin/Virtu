@@ -21,9 +21,12 @@ if(session.getAttribute("login")==null) {
 <body>
 <%@ include file="header.jsp" %>
 <%@ include file="sidebar.jsp" %>
+<div id="main_block">Настройка</div>
 
 <div id="post">
+
     <%@ include file="vertsidebar.jsp" %>
+    <p><label id="lab_big">Настройка пользователей</label></p>
     <p><a id="button_href" href="/useradd">Добавить пользователя</a></p>
     <label>Зарегистрированные пользователи</label>
 

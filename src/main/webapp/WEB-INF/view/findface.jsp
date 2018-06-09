@@ -5,8 +5,9 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.text.ParseException" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="org.apache.xmlbeans.impl.xb.xsdschema.SimpleRestrictionType" %>
 <%@ page import="source.system.model.ApGIBDDStat" %>
+<%@ page import="source.system.model.ApPristStat" %>
+<%@ page import="source.system.model.ApOVDStat" %>
 
 
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
@@ -14,6 +15,8 @@
 
 <html>
 <head>
+
+
     <script>
 
         function mydate() {
@@ -39,55 +42,29 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>ИТО</title>
     <style> <%@include file="../css/style.css"%> </style>
+
+
+
+    <script  type="text/javascript" src="/js/jquery-1.12.4.js"></script>
+    <script  type="text/javascript" src="/js/jquery-ui-1.12.1js.js"></script>
+
+    <style> <%@include file="../css/jquery-ui.css"%> </style>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
 </head>
 
-<%@ include file="header.jsp" %>
-<%@ include file="sidebar.jsp" %>
 
-<body>
-<div id="post" style="height: 130%">
-
-    <form action="/findface" method="POST" name="filter">
-        <div id="kol">
-
-            <div id="lab_big" >
-            <label >Данные для поиска</label>
-            </div>
-            <p></p>
-            <div id="left_kol">
-                <div>
-                    <div><label label id="lab"> Фамилия </label></div>
-                    <input type="text" name="lastname">
-                </div>
-
-                <div>
-                    <div><label label id="lab"> Имя </label></div>
-                    <input type="text" name="firstname">
-                </div>
-
-                <div>
-                    <div><label label id="lab"> Отчество </label></div>
-                    <input type="text" name="middlename">
-                </div>
-            </div>
-
-            <div id="right_kol">
-                <div><label id="lab">Дата рождения</label></div>
-                <div>Известна точная дата</div>	<input type="checkbox" name="on" checked value="on"  onclick="if(this.checked){this.nextSibling.style.display=''}else {this.nextSibling.style.display='none';  this.nextSibling.value='';}"><input type="date" id="dt" onchange="mydate1();"/>
-                <input type="text" name="birthday" id="ndt" onclick="mydate();" hidden/>
-
-            </div>
-
-    </div>
-        <button id="but_ok" type="submit" name="save" onclick="mydate();">Искать</button>
-        <button id="but_ok" type="reset" >Очистить поля </button>
-
-    </form>
-
-    <%  request.setCharacterEncoding("UTF-8");
+<%
+     request.setCharacterEncoding("UTF-8");
         String on=request.getParameter("on");
+
         List<ApOVDStat> apOVDs=new ArrayList<ApOVDStat>();
         List <ApGIBDDStat> apGIBDDs=new ArrayList<ApGIBDDStat>();
+        List <ApPristStat> apPrists=new  ArrayList<ApPristStat>();
+
         java.sql.Date SQLbirthday=null;
         System.out.print(SQLbirthday);
         String lastname = (request.getParameter("lastname"));
@@ -96,7 +73,8 @@
         String STRbirthday = request.getParameter("birthday");
                 if (firstname==""|| firstname==null){firstname ="%";}
                 if (lastname==""|| lastname==null){lastname ="%";}
-                if(middlename=="" || middlename==null){middlename="%";}
+
+   if(middlename=="" || middlename==null){middlename="%";}
                 if(on!=null)
                 {
 
@@ -109,8 +87,8 @@
                         System.out.println(SQLbirthday);
                     }catch (ParseException e)
                     {%>
-                         <script> alert("Дата равна NULL ! Сними галку или корректно заполни поле");</script>
-                     <%
+<script> alert("Дата равна NULL ! Сними галку или корректно заполни поле");</script>
+    <%
                     }
                 }
                 System.out.print(request.getParameter("on"));
@@ -120,6 +98,7 @@
                     Filter filter = new Filter();
                     apOVDs = filter.FindFaceOVD(lastname, firstname, middlename, SQLbirthday);
                     apGIBDDs= filter.FindFaceGIBDD(lastname,firstname, middlename, SQLbirthday);
+                    apPrists=filter.FindFacePrist(lastname,firstname,middlename,SQLbirthday);
                 }
 
 
@@ -127,14 +106,76 @@
               {
                  Filter filter = new Filter();
                  apOVDs = filter.FindFaceOVD(lastname, firstname, middlename, null);
-                  apGIBDDs= filter.FindFaceGIBDD(lastname,firstname, middlename, null);
+                 apGIBDDs= filter.FindFaceGIBDD(lastname,firstname, middlename, null);
+                 apPrists=filter.FindFacePrist(lastname,firstname,middlename,null);
               }
+%>
+<%@ include file="header.jsp" %>
+<%@ include file="sidebar.jsp" %>
+<body>
+<div id="main_block">Поиск гражданина по базам</div>
+<div id="post" style="height: 130%">    <form action="/findface" method="POST" name="filter">
 
+        <div id="kol">
+            <div id="lab_big" >
+            <label >Данные для поиска</label>
+            </div>
+            <p></p>
+            <div id="left_kol">
+                <div>
+                    <div><label label id="lab"> Фамилия </label></div>
+                        <% if(lastname.equals("%"))
+                            { %>
+                        <input type="text" name="lastname">
+                        <% }
+                        else {
+                        %>
+                    <input type="text" name="lastname"  value="<%=lastname%>">
+                    <%}%>
+                </div>
+
+                <div>
+                    <div><label label id="lab"> Имя </label></div>
+                    <% if(firstname.equals("%"))
+                    { %>
+                    <input type="text" name="firstname">
+                    <% }
+                    else {
+                    %>
+                    <input type="text" name="firstname"  value="<%=firstname%>">
+                    <%}%>
+                </div>
+
+                <div>
+                    <div><label label id="lab"> Отчество </label></div>
+                    <% if(middlename.equals("%"))
+                    { %>
+                    <input type="text" name="middlename">
+                    <% }
+                    else {
+                    %>
+                    <input type="text" name="middlename"  value="<%=middlename%>">
+                    <%}%>
+                </div>
+
+            </div>
+
+            <div id="right_kol">
+                <div><label id="lab">Дата рождения</label></div>
+                <div>Известна точная дата</div>	<input type="checkbox" name="on" value="on"  onclick="if(this.checked){this.nextSibling.style.display=''}else {this.nextSibling.style.display='none';  this.nextSibling.value='';}"><input type="date" id="dt" onchange="mydate1();"/>
+                <input type="text" name="birthday" id="ndt" onclick="mydate();" hidden/>
+
+            </div>
+
+    </div>
+        <button id="but_ok" type="submit" name="save" onclick="mydate();">Искать</button>
+        <button id="but_ok" type="reset" >Очистить поля </button>
+    </form>
+
+    <%
 if(apOVDs.size()>0)
 {
    %>
-
-
     <label id="lab_big">Правонарушители из баз ОВД</label>
     <table border=1>
         <thead>
@@ -168,7 +209,6 @@ if(apOVDs.size()>0)
 
         </tr>
         <%
-
             }
         %>
         </tbody>
@@ -185,7 +225,6 @@ if(apGIBDDs.size()>0)
 <table border=1>
     <thead>
     <tr>
-
         <th>Фамилия</th>
         <th>Имя</th>
         <th>Отчество</th>
@@ -214,13 +253,51 @@ if(apGIBDDs.size()>0)
 
     </tr>
     <%
-
         }
     %>
     </tbody>
 </table>
+<% }
+    if(apPrists.size()>0)
+    {
 
-<% }%>
+%>
+    <label id="lab_big">Правонарушители из баз ФССП</label>
+    <table border=1>
+        <thead>
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Дата рождения</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            for (int i = 0; i < apPrists.size(); i++) {
+
+        %>
+        <tr>
+            <td><%=apPrists.get(i).getLastName()%></td>
+            <td><%= apPrists.get(i).getFirstName()%></td>
+            <td><%= apPrists.get(i).getMiddleName()%></td>
+            <td><%= apPrists.get(i).getBirthDay()%></td>
+            <td> <form method="post" action="/echofilter">
+                <input type="hidden" value=<%=apPrists.get(i).getLastName()%> name="lastname">
+                <input type="hidden" value=<%=apPrists.get(i).getFirstName()%> name="firstname">
+                <input type="hidden" value=<%=apPrists.get(i).getMiddleName()%> name="middlename">
+                <input type="hidden" value=<%=apPrists.get(i).getBirthDay()%> name="birthday">
+                <button type="submit">Подробно о грaжданине</button>
+            </form>
+            </td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
+    <% }%>
 </div>
 <%@ include file="footer.jsp" %>
 </body>

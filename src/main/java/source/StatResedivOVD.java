@@ -1,5 +1,7 @@
 package source;
 
+import source.system.model.ApOVDStat;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
 
 ;
 import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
-import static source.ApOVDStat.*;
+import static source.system.model.ApOVDStat.*;
 
 
 /**
@@ -20,9 +22,9 @@ public class StatResedivOVD {
 
     private Connection connection;
 
-    private static final int threadCount = 1;
+    private static final int threadCount = 3;
 
-    public List<ApOVDStat> FilterStat(String article, java.sql.Date d1, java.sql.Date d2, String sorts, String interval,String cact, String regionMask)
+    public List<ApOVDStat> FilterStat(String article, java.sql.Date d1, java.sql.Date d2, String sorts, String interval, String cact, String regionMask)
     {
 
         long curr = System.currentTimeMillis();

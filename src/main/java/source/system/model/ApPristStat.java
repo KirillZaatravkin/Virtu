@@ -7,24 +7,23 @@ import java.util.Date;
 /**
  * Created by кирюха on 17.05.2018.
  */
-public class ApGIBDDStat {
+public class ApPristStat {
 
     String LastName;
     String FirstName;
     String MiddleName;
     String Article;
     String Cact;
-    String VodUd;
-    String FacktAddr;
+    String PasportN, PasportS, FacktAddr;
     Date BirthDay, DateP, DateP2;
     Integer Kol;
 
-    public String getVodUd() {
-        return VodUd;
+    public String getPasportN() {
+        return PasportN;
     }
 
-    public String getFacktAddr() {
-        return FacktAddr;
+    public String getPasportS() {
+        return PasportS;
     }
 
     public String getCact() {
@@ -35,11 +34,17 @@ public class ApGIBDDStat {
         this.Cact = Cact;
     }
 
-    public void setVodUd(String VodUd) {
-        this.VodUd = VodUd;
+    public void setFacktAddr(String FacktAddr) {
+        this.FacktAddr = FacktAddr;
     }
 
-    public void setFacktAddr(String FacktAddr) { this.FacktAddr = FacktAddr; }
+    public void setPasportN(String PasportN) {
+        this.PasportN = PasportN;
+    }
+
+    public void setPasportP(String PasportS) {
+        this.PasportS = PasportS;
+    }
 
     public void setFirstName(String FirstName) {
         this.FirstName = (FirstName);
@@ -93,6 +98,10 @@ public class ApGIBDDStat {
         return BirthDay;
     }
 
+    public String getFacktAddr() {
+        return FacktAddr;
+    }
+
     public Date getDateP() {
         return DateP;
     }
@@ -106,25 +115,25 @@ public class ApGIBDDStat {
     }
 
 
-    public static Comparator<ApGIBDDStat> CompKol1 = new Comparator<ApGIBDDStat>() {
+    public static Comparator<ApPristStat> CompKol1 = new Comparator<ApPristStat>() {
         @Override
-        public int compare(ApGIBDDStat o1, ApGIBDDStat o2) {
+        public int compare(ApPristStat o1, ApPristStat o2) {
             return (int) o1.getKol() - o2.getKol();
         }
     };
 
-    public static Comparator<ApGIBDDStat> CompLastName1 = new Comparator<ApGIBDDStat>() {
+    public static Comparator<ApPristStat> CompLastName1 = new Comparator<ApPristStat>() {
         @Override
-        public int compare(ApGIBDDStat o1, ApGIBDDStat o2) {
+        public int compare(ApPristStat o1, ApPristStat o2) {
             return o1.getLastName().compareTo(o2.getLastName());
         }
 
     };
 
-    public static Comparator<ApGIBDDStat> CompDateP1 = new Comparator<ApGIBDDStat>() {
+    public static Comparator<ApPristStat> CompDateP1 = new Comparator<ApPristStat>() {
 
         @Override
-        public int compare(ApGIBDDStat o1, ApGIBDDStat o2) {
+        public int compare(ApPristStat o1, ApPristStat o2) {
             if (o1.getDateP().compareTo(o2.getDateP()) == 1) {
                 return -1;
             } else if (o1.getDateP().equals(o2.getDateP())) {
@@ -135,9 +144,9 @@ public class ApGIBDDStat {
         }
     };
 
-    public static Comparator<ApGIBDDStat> CompArticle1 = new Comparator<ApGIBDDStat>() {
+    public static Comparator<ApPristStat> CompArticle1 = new Comparator<ApPristStat>() {
         @Override
-        public int compare(ApGIBDDStat o1, ApGIBDDStat o2) {
+        public int compare(ApPristStat o1, ApPristStat o2) {
             return o1.getArticle().compareTo(o2.getArticle());
         }
     };

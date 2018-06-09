@@ -1,4 +1,4 @@
-package source;
+package source.system.model;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import sun.util.locale.LocaleUtils;
@@ -10,18 +10,25 @@ import java.util.Date;
  */
 public class ApOVD {
 
-    String LastName, FirstName, MiddleName, FacktAddr, ResAddr, Article,Cact;
-    Date BirthDay, DateCreate, DateP;
+    String LastName, FirstName, MiddleName, FacktAddr, ResAddr, Article,Cact,Organ;
+    Date BirthDay, DateCreate, DateP, DateZak;
     String PasportS, PasportN;
 
 
     public void setFirstName(String FirstName) {
         this.FirstName = (FirstName);
     }
+
     public void setCact(String Cact)
     {
         this.Cact=Cact;
     }
+
+    public void setOrgan(String Organ)
+    {
+        this.Organ=Organ;
+    }
+
     public void setLastName(String LastName) {
         this.LastName = LastName;
     }
@@ -53,8 +60,13 @@ public class ApOVD {
     public String getPasportN() {
         return PasportN;
     }
+
     public String getCact() {
         return Cact;
+    }
+
+    public String getOrgan() {
+        return Organ;
     }
 
     public void setPasportS(String pasportS) {
@@ -65,15 +77,19 @@ public class ApOVD {
         PasportN = pasportN;
     }
 
-
-
     public void setDaterCreate (Date DateCreate)
     {
         this.DateCreate=DateCreate;
     }
+
     public void setDateP(Date DateP)
     {
         this.DateP=DateP;
+    }
+
+    public void setDateZak(Date DateZak)
+    {
+        this.DateZak=DateZak;
     }
 
     public String getLastName() {
@@ -107,4 +123,6 @@ public class ApOVD {
     public Date getDateCreate (){ return DateCreate;}
 
     public Date getDateP (){ return DateP;}
+
+    public Date getDateZak (){ return DateZak;}
 }

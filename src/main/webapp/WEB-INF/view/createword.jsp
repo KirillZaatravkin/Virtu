@@ -4,6 +4,8 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="static jdk.nashorn.internal.objects.NativeString.toUpperCase" %>
 <%@ page import="source.system.model.ApGIBDD" %>
+<%@ page import="source.system.model.ApPrist" %>
+<%@ page import="source.system.model.ApOVD" %>
 
 
 <% request.setCharacterEncoding("UTF-8");
@@ -19,16 +21,14 @@
         java.sql.Date SQLbirthday = new java.sql.Date(birthday.getTime());
         Filter filter = new Filter();
 
-
-
-
         List<ApOVD> apOVDs = filter.EchoFaceOVD(lastname, firstname, middlename, SQLbirthday);
         List<ApGIBDD> apGIBDDs = filter.EchoFaceGIBDD(lastname, firstname, middlename, SQLbirthday);
+        List<ApPrist> apPrists = filter.EchoFacePrist(lastname, firstname, middlename, SQLbirthday);
 
         if(apOVDs.size()>0 || apGIBDDs.size()>0)
         {
                CreateWord cw= new CreateWord();
-               cw.WordFindFace(apOVDs,apGIBDDs);
+               cw.WordFindFace(apOVDs,apGIBDDs, apPrists,lastname, firstname, middlename,STRbirthday );
 %>
 
 <script>history.go(-1)</script><%

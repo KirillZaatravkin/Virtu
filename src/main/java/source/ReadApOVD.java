@@ -3,10 +3,10 @@ package source;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Row;
+import source.system.model.ApOVD;
 
 import java.io.*;
 import java.sql.*;
-import java.text.*;
 import java.util.*;
 import java.util.Date;
 
@@ -14,17 +14,19 @@ import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
 
 
 public class ReadApOVD {
-    public static final int FirstNameCell = 0;
-    public static final int LastNameCell = 1;
-    public static final int MiddleNameCell = 2;
-    public static final int BirthDayCell = 3;
-    public static final int FacktAddrCell = 4;
-    public static final int ResAddrCell = 5;
-    public static final int ArrticleCell = 6;
-    public static final int CactCell = 7;
-    public static final int DatePCell = 16;
-    public static final int PasportSCell = 10;
-    public static final int PasportNCell = 11;
+    public static final int FirstNameCell = 3;
+    public static final int LastNameCell = 4;
+    public static final int MiddleNameCell = 5;
+    public static final int BirthDayCell = 6;
+    public static final int FacktAddrCell = 11;
+    public static final int ResAddrCell = 12;
+    public static final int ArrticleCell = 13;
+    public static final int CactCell = 14;
+    public static final int DatePCell = 0;
+    public static final int DateZakCell = 1;
+    public static final int OrganCell = 2;
+    public static final int PasportSCell = 7;
+    public static final int PasportNCell = 8;
     private Connection connection;
 
     public ReadApOVD() {
@@ -46,40 +48,38 @@ public class ReadApOVD {
             HSSFRow row = (HSSFRow) rows.next();
             ApOVD apOVD = new ApOVD();
             apOVD.setFirstName((row.getCell(FirstNameCell).getStringCellValue()));
-            //System.out.println(apOVD.FirstName);
             apOVD.setLastName(row.getCell(LastNameCell).getStringCellValue());
             apOVD.setMiddleName(row.getCell(MiddleNameCell).getStringCellValue());
+
             int birthDayType = row.getCell(BirthDayCell).getCellType();
             if (birthDayType == 0) {
                 Date birthDaySTR = row.getCell(BirthDayCell).getDateCellValue();
-                //Locale local = new Locale("ru", "RU");
-                // DateFormat df = DateFormat.getDateInstance(DateFormat.DEFAULT, local);
-                // System.out.println(df.format(birthDaySTR));
-                apOVD.setBirthday(birthDaySTR);
-                System.out.println(birthDaySTR);
+                apOVD.setBirthday(birthDaySTR );
             }
+
+            int DateZakType = row.getCell(DateZakCell).getCellType();
+            if (DateZakType == 0) {
+                Date dateZak = row.getCell(DateZakCell).getDateCellValue();
+                System.out.println(dateZak);
+                apOVD.setDateZak(dateZak);
+            }
+
             int datePType = row.getCell(DatePCell).getCellType();
             if (datePType == 0) {
                 Date datePSTR = row.getCell(DatePCell).getDateCellValue();
-                //Locale local = new Locale("ru", "RU");
-                // DateFormat df = DateFormat.getDateInstance(DateFormat.DEFAULT, local);
-                // System.out.println(df.format(birthDaySTR));
                 apOVD.setDateP(datePSTR);
-                System.out.println(datePSTR);
-
             }
             apOVD.setFacktAddr(row.getCell(FacktAddrCell).getStringCellValue());
             apOVD.setResAddr(row.getCell(ResAddrCell).getStringCellValue());
+            apOVD.setOrgan(row.getCell(OrganCell).getStringCellValue());
             apOVD.setArticle(row.getCell(ArrticleCell).getStringCellValue());
             try{
-            {   apOVD.setPasportS(row.getCell(PasportSCell).getStringCellValue());
-                apOVD.setPasportN(row.getCell(PasportNCell).getStringCellValue());
-            }
-
+              apOVD.setPasportS(row.getCell(PasportSCell).getStringCellValue());
+              apOVD.setPasportN(row.getCell(PasportNCell).getStringCellValue());
             }
             catch (java.lang.NullPointerException e)
             {
-System.out.println("j");
+
             }
             try{
                 {
@@ -89,13 +89,14 @@ System.out.println("j");
             }
             catch (java.lang.NullPointerException e)
             {
-                System.out.println("j");
+
             }
 
             listapOVD.add(apOVD);
             i++;
         }
         System.out.println(i);
+        fs.close();
         return listapOVD;
     }
 
@@ -107,7 +108,7 @@ System.out.println("j");
         for (int i = 0; i < apOVDList.size(); i++) {
             j++;
             try {
-                ps = connection.prepareStatement("insert into ap_ovd(lastname,firstname,middlename,facktaddr,resaddr,article,birthday, datep,pasports,pasportn,cact) values (?,?,?,?,?,?,?,?,?,?,?)");
+                ps = connection.prepareStatement("insert into ap_ovd(lastname,firstname,middlename,facktaddr,resaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
                 ps.setString(1, toUpperCase(apOVDList.get(i).getFirstName()));
                 ps.setString(2, toUpperCase(apOVDList.get(i).getLastName()));
                 ps.setString(3, toUpperCase(apOVDList.get(i).getMiddleName()));
@@ -121,11 +122,7 @@ System.out.println("j");
                 } else {
                     ps.setNull(7, Types.DATE);
                 }
-                //   java.util.Date udate= new java.util.Date();
-                //  java.sql.Date sdate=new java.sql.Date(udate.getTime());
-                // ps.setDate(7,sdate);
-
-                if (apOVDList.get(i).getDateP() != null) {
+               if (apOVDList.get(i).getDateP() != null) {
                     ps.setDate(8, new java.sql.Date(apOVDList.get(i).getDateP().getTime()));
                 } else {
                     ps.setNull(8, Types.DATE);
@@ -133,6 +130,13 @@ System.out.println("j");
                 ps.setString(9, apOVDList.get(i).getPasportS());
                 ps.setString(10, apOVDList.get(i).getPasportN());
                 ps.setString(11,apOVDList.get(i).getCact());
+                ps.setString(12,apOVDList.get(i).getOrgan());
+
+                if (apOVDList.get(i).getDateZak() != null) {
+                    ps.setDate(13, new java.sql.Date(apOVDList.get(i).getDateZak().getTime()));
+                } else {
+                    ps.setNull(13, Types.DATE);
+                }
                 ps.executeUpdate();
 
             } catch (SQLException e) {
