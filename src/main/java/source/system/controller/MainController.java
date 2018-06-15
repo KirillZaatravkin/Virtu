@@ -67,6 +67,13 @@ public class MainController {
         return "statresediv";
     }
 
+    @RequestMapping(path = "/resediv")
+    public String resediv (Model model)
+    {
+
+        return "resediv";
+    }
+
 
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST},path = "/analiz")
     public String analiz (Model model)

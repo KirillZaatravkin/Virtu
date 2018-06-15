@@ -259,9 +259,22 @@
 }
 
 #sub:hover{
-    color: #e01e0a;
-    border: 3px solid #0023ff;
-    background-color: #0023ff;
+    color: #e0ddd8;
+    border: 3px solid #ff9594;
+    background-color: #ff9594;
 }
+
+#ref {
+    color: rgba(224, 30, 10, 0.35);
+    font-weight: 700;
+    text-shadow: none;
+    font-size: 12px;
+}
+
+#ref:hover{
+    color: #d0d0d0;
+}
+
+
 
 

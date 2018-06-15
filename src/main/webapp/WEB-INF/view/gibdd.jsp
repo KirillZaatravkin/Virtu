@@ -83,6 +83,9 @@
             <th>Статья КоАП</th>
             <th>часть</th>
             <th>Дата совершения правонарушения</th>
+            <th>Дата постановления</th>
+            <th>Дата вступления в законную силу</th>
+            <th>Вид наказания</th>
             <th>Номер протокола</th>
         </tr>
         </thead>
@@ -110,6 +113,12 @@
             <td><%= apGIBDD.get(i).getCact()%>
             </td>
             <td><%= apGIBDD.get(i).getDateP()%>
+            </td>
+            <td><%= apGIBDD.get(i).getDatePost()%>
+            </td>
+            <td><%= apGIBDD.get(i).getDateZak()%>
+            </td>
+            <td><%= apGIBDD.get(i).getNakaz()%>
             </td>
             <td><%= apGIBDD.get(i).getProtokolN()%>
             </td>

@@ -139,6 +139,51 @@ public class ReadApOVD {
                 }
                 ps.executeUpdate();
 
+
+                if(apOVDList.get(i).getArticle().equals("5.35.1") || apOVDList.get(i).getArticle().equals("7.27")  || apOVDList.get(i).getArticle().equals("12.8") ||apOVDList.get(i).getArticle().equals("12.6") || apOVDList.get(i).getArticle().equals("14.16")) {
+                    if (apOVDList.get(i).getArticle().equals("5.35.1")) {
+                        ps = connection.prepareStatement("insert into st_5_35_1(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak, resaddr ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    } else if (apOVDList.get(i).getArticle().equals("7.27")) {
+                        ps = connection.prepareStatement("insert into st_7_27(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak , resaddr) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    } else if (apOVDList.get(i).getArticle().equals("14.16")) {
+                        ps = connection.prepareStatement("insert into st_14_16 (lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak, resaddr ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    } else {
+                        ps = connection.prepareStatement("insert into st_12_8_st_12_6 (lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak , resaddr) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    }
+                    ps.setString(1, toUpperCase(apOVDList.get(i).getFirstName()));
+                    ps.setString(2, toUpperCase(apOVDList.get(i).getLastName()));
+                    ps.setString(3, toUpperCase(apOVDList.get(i).getMiddleName()));
+                    ps.setString(4, toUpperCase(apOVDList.get(i).getFacktAddr()));
+                    ps.setString(5, apOVDList.get(i).getArticle());
+
+
+                    if (apOVDList.get(i).getBirthDay() != null) {
+                        ps.setDate(6, new java.sql.Date(apOVDList.get(i).getBirthDay().getTime()));
+                    } else {
+                        ps.setNull(6, Types.DATE);
+                    }
+                    if (apOVDList.get(i).getDateP() != null) {
+                        ps.setDate(7, new java.sql.Date(apOVDList.get(i).getDateP().getTime()));
+                    } else {
+                        ps.setNull(7, Types.DATE);
+                    }
+                    ps.setString(8, apOVDList.get(i).getPasportS());
+                    ps.setString(9, apOVDList.get(i).getPasportN());
+                    ps.setString(10,apOVDList.get(i).getCact());
+                    ps.setString(11,apOVDList.get(i).getOrgan());
+
+                    if (apOVDList.get(i).getDateZak() != null) {
+                        ps.setDate(12, new java.sql.Date(apOVDList.get(i).getDateZak().getTime()));
+                    } else {
+                        ps.setNull(12, Types.DATE);
+                    }
+                    ps.setString(13, toUpperCase(apOVDList.get(i).getResAddr()));
+                    ps.executeUpdate();
+                }
+
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {

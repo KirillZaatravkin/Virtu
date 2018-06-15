@@ -82,6 +82,8 @@
             <th>Статья КоАП</th>
             <th>часть</th>
             <th>Дата совершения правонарушения</th>
+            <th>Дата вступления в законную силу</th>
+            <th>Вид наказания</th>
         </tr>
         </thead>
         <tbody>
@@ -101,6 +103,8 @@
             <td><%= apPrists.get(i).getArticle()%></td>
             <td><%= apPrists.get(i).getCact()%></td>
             <td><%= apPrists.get(i).getDateP()%></td>
+            <td><%= apPrists.get(i).getDateZak()%></td>
+            <td><%= apPrists.get(i).getNakaz()%></td>
         </tr>
         <%
             }

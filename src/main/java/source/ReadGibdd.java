@@ -206,7 +206,7 @@ public class ReadGibdd {
                 }
                 apGIBDD.setFacktAddr(SS);
                 String article = "";
-                String chact = "";
+                String chact = " ";
                 String arS = row.getCell(ArrticleCell).getStringCellValue();
                 boolean flag_4 = false;
                 for (int y = 0; y < arS.length(); y++) {
@@ -291,6 +291,66 @@ public class ReadGibdd {
                 }
 
                 ps.executeUpdate();
+
+                if(apGIBDDList.get(i).getArticle().equals("5.35.1") || apGIBDDList.get(i).getArticle().equals("7.27")  || apGIBDDList.get(i).getArticle().equals("12.8") ||apGIBDDList.get(i).getArticle().equals("12.6") || apGIBDDList.get(i).getArticle().equals("14.16"))
+                {
+                    if(apGIBDDList.get(i).getArticle().equals("5.35.1"))
+                    {
+                        ps = connection.prepareStatement("insert into st_5_35_1(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, vodud, protokoln, nakaz, datezak, datepost) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else  if(apGIBDDList.get(i).getArticle().equals("7.27"))
+                    {
+                        ps = connection.prepareStatement("insert into st_7_27 (firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, vodud, protokoln, nakaz, datezak, datepost) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    }
+                    else  if(apGIBDDList.get(i).getArticle().equals("14.16"))
+                    {
+                        ps = connection.prepareStatement("insert into st_14.16 (firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, vodud, protokoln, nakaz, datezak, datepost) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    }
+                    else
+                    {
+                        ps = connection.prepareStatement("insert into st_12_8_st_12_6(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, vodud, protokoln, nakaz, datezak, datepost) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    }
+                    ps.setString(1, toUpperCase(apGIBDDList.get(i).getFirstName()));
+                    ps.setString(2, toUpperCase(apGIBDDList.get(i).getLastName()));
+                    ps.setString(3, toUpperCase(apGIBDDList.get(i).getMiddleName()));
+                    ps.setString(4,toUpperCase(apGIBDDList.get(i).getFacktAddr()));
+                    ps.setString(5, apGIBDDList.get(i).getArticle());
+                    ps.setString(6, apGIBDDList.get(i).getCact());
+
+
+                    if (apGIBDDList.get(i).getBirthDay() != null) {
+                        ps.setDate(7, new java.sql.Date(apGIBDDList.get(i).getBirthDay().getTime()));
+                    } else {
+                        ps.setNull(7, Types.DATE);
+                    }
+
+                    if (apGIBDDList.get(i).getDateP() != null) {
+                        ps.setDate(8, new java.sql.Date(apGIBDDList.get(i).getDateP().getTime()));
+                    } else {
+                        ps.setNull(8, Types.DATE);
+                    }
+                    ps.setString(9, apGIBDDList.get(i).getVodUd());
+                    ps.setString(10, apGIBDDList.get(i).getProtokolN());
+                    ps.setString(11, apGIBDDList.get(i).getNakaz());
+
+                    if (apGIBDDList.get(i).getDateZak() != null) {
+                        ps.setDate(12, new java.sql.Date(apGIBDDList.get(i).getDateZak().getTime()));
+                    } else {
+                        ps.setNull(12, Types.DATE);
+                    }
+
+                    if (apGIBDDList.get(i).getDatePost() != null) {
+                        ps.setDate(13, new java.sql.Date(apGIBDDList.get(i).getDatePost().getTime()));
+                    } else {
+                        ps.setNull(13, Types.DATE);
+                    }
+
+                    ps.executeUpdate();
+
+                }
 
             } catch (SQLException e) {
                 e.printStackTrace();

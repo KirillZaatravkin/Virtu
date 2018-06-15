@@ -33,8 +33,8 @@ if(session.getAttribute("login")==null) {
     <table border=1>
         <thead>
         <tr>
-            <th> ИД</th>
-            <th>логин</th>
+
+            <th>Логин</th>
             <th>Дата регистрации</th>
         </tr>
         </thead>

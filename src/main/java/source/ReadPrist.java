@@ -135,6 +135,60 @@ public class ReadPrist {
                 ps.setString(12, (apPrists.get(i).getNakaz()));
                 ps.executeUpdate();
 
+                if(apPrists.get(i).getArticle().equals("5.35.1") || apPrists.get(i).getArticle().equals("7.27")  || apPrists.get(i).getArticle().equals("12.8") || apPrists.get(i).getArticle().equals("12.6") || apPrists.get(i).getArticle().equals("14.16"))
+                {
+                    if(apPrists.get(i).getArticle().equals("5.35.1"))
+                    {
+                        ps = connection.prepareStatement("insert into st_5_35_1(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else  if(apPrists.get(i).getArticle().equals("7.27"))
+                    {
+                        ps = connection.prepareStatement("insert into st_7_27(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    }
+                    else  if(apPrists.get(i).getArticle().equals("14.16"))
+                    {
+                        ps = connection.prepareStatement("insert into st_14_16(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    }
+                    else
+                    {
+                        ps = connection.prepareStatement("insert into st_12_8_st_12_6(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    }
+                    ps.setString(1, toUpperCase(apPrists.get(i).getFirstName()));
+                    ps.setString(2, toUpperCase(apPrists.get(i).getLastName()));
+                    ps.setString(3, toUpperCase(apPrists.get(i).getMiddleName()));
+                    ps.setString(4, toUpperCase(apPrists.get(i).getFacktAddr()));
+                    ps.setString(5, apPrists.get(i).getArticle());
+                    ps.setString(6, apPrists.get(i).getCact());
+
+                    if (apPrists.get(i).getBirthDay() != null) {
+                        ps.setDate(7, new java.sql.Date(apPrists.get(i).getBirthDay().getTime()));
+                    } else {
+                        ps.setNull(7, Types.DATE);
+                    }
+
+                    if (apPrists.get(i).getDateP() != null) {
+                        ps.setDate(8, new java.sql.Date(apPrists.get(i).getDateP().getTime()));
+                    } else {
+                        ps.setNull(8, Types.DATE);
+                    }
+                    ps.setString(9, apPrists.get(i).getPasportN());
+                    ps.setString(10, apPrists.get(i).getPasportS());
+
+                    if (apPrists.get(i).getDateZak() != null) {
+                        ps.setDate(11, new java.sql.Date(apPrists.get(i).getDateZak().getTime()));
+                    } else {
+                        ps.setNull(11, Types.DATE);
+                    }
+                    ps.setString(12, (apPrists.get(i).getNakaz()));
+                    ps.executeUpdate();
+                }
+
+
+
+
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {

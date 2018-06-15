@@ -38,8 +38,7 @@ public class CreateWord {
         paragraphConfig.setFontSize(25);
         paragraphConfig.setColor("06357a");
         paragraphConfig.setText(lastname + " "+firstname +" "+ middlename);
-        paragraphConfig.setText("  "+birthday+"   ." +
-                "");
+        paragraphConfig.setText("  "+birthday+"   ." +       "");
 
         XWPFTable table = document.createTable();
 
@@ -157,7 +156,7 @@ public class CreateWord {
     }
 
 
-    public void Resediv (List<ApOVDStat> apOVDs, List<ApGIBDDStat> apGIBDDs, List<ApPristStat> apPrists, int kolNar, int kolFace, int kolRes) {
+    public void Resediv (List<ArticleStat> articleStat,List<ApOVDStat> apOVDs, List<ApGIBDDStat> apGIBDDs, List<ApPristStat> apPrists, int kolNar, int kolFace, int kolRes) {
 
         Date date=new Date();
         DateFormat dateFormat = SimpleDateFormat.getDateInstance(SimpleDateFormat.SHORT);
@@ -221,6 +220,23 @@ public class CreateWord {
             tableRow.getCell(8).setText(String.valueOf(apOVDs.get(i).getKol()));
             tableRow.getCell(9).setText(s);
         }
+
+
+        for (int i = 0; i < articleStat.size(); i++) {
+
+            XWPFTableRow tableRow = table.createRow();
+            tableRow.getCell(0).setText(String.valueOf(i+1));
+            tableRow.getCell(1).setText(articleStat.get(i).getLastName());
+            tableRow.getCell(2).setText(String.valueOf(articleStat.get(i).getFirsName()));
+            tableRow.getCell(3).setText(articleStat.get(i).getMiddleName());
+            tableRow.getCell(4).setText(String.valueOf(articleStat.get(i).getBirthday()));
+            tableRow.getCell(5).setText(" ");
+            tableRow.getCell(6).setText(articleStat.get(i).getCact());
+            tableRow.getCell(7).setText(String.valueOf(articleStat.get(i).getDateP()));
+            tableRow.getCell(8).setText(String.valueOf(articleStat.get(i).getKol()));
+            tableRow.getCell(9).setText(" ");
+        }
+
         for (int i = 0; i < apGIBDDs.size(); i++) {
             String s="Согласно базам ГИБДД";
             XWPFTableRow tableRow = table.createRow();

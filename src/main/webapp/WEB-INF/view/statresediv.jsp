@@ -7,15 +7,12 @@
 --%>
 <%@page import="source.*" %>
 <%@ page import="source.system.dao.MaskDAO" %>
-<%@ page import="source.system.model.ApGIBDDStat" %>
-<%@ page import="source.system.model.ApPristStat" %>
-<%@ page import="source.system.model.Mask" %>
 <%@ page import="java.text.ParseException" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.List" %>
-<%@ page import="source.system.model.ApOVDStat" %>
+<%@ page import="source.system.model.*" %>
 
 <%
     if (session.getAttribute("login") == null) {
@@ -208,6 +205,7 @@
                 List<ApOVDStat> apOVDStats = new ArrayList<ApOVDStat>();
                 List<ApGIBDDStat> apGIBDDStat = new ArrayList<ApGIBDDStat>();
                 List<ApPristStat> apPristStat = new ArrayList<ApPristStat>();
+                List <ArticleStat> art=new ArrayList<ArticleStat>();
                 int kolNarush = 0;
                 int kolFace = 0;
                 int kolRes = 0;
@@ -234,7 +232,7 @@
                 if (request.getParameter("doc") != null) {
 
                     CreateWord cw = new CreateWord();
-                   cw.Resediv(apOVDStats, apGIBDDStat, apPristStat, kolNarush, kolFace, kolRes);
+                   cw.Resediv(art, apOVDStats, apGIBDDStat, apPristStat, kolNarush, kolFace, kolRes);
                 }
     %>
 
@@ -274,6 +272,7 @@
             <th>Имя</th>
             <th>Отчество</th>
             <th>Дата рождения</th>
+            <th>Место жительства</th>
             <th>Статья</th>
             <th>Часть</th>
             <th>Кол-во незакрытых правонарушений</th>
@@ -294,6 +293,8 @@
             <td><%= apOVDStats.get(i).getMiddleName()%>
             </td>
             <td><%= apOVDStats.get(i).getBirthDay()%>
+            </td>
+            <td><%= apOVDStats.get(i).getFacktAddr()%>
             </td>
             <td><%= apOVDStats.get(i).getArticle()%>
             </td>

@@ -82,6 +82,7 @@
             <th>Статья КоАП</th>
             <th>часть</th>
             <th>Дата совершения правонарушения</th>
+            <th>Дата вступления в законную силу</th>
         </tr>
         </thead>
         <tbody>
@@ -112,6 +113,8 @@
             <td><%= apOVD.get(i).getCact()%>
             </td>
             <td><%= apOVD.get(i).getDateP()%>
+            </td>
+            <td><%= apOVD.get(i).getDateZak()%>
             </td>
         </tr>
         <%
