@@ -100,7 +100,6 @@ public class ReadPrist {
     public int WriteToBD(List<ApPrist> apPrists) {
 
         PreparedStatement ps = null;
-
         int j = 0;
         for (int i = 0; i < apPrists.size(); i++) {
             j++;
@@ -135,27 +134,39 @@ public class ReadPrist {
                 ps.setString(12, (apPrists.get(i).getNakaz()));
                 ps.executeUpdate();
 
-                if(apPrists.get(i).getArticle().equals("5.35.1") || apPrists.get(i).getArticle().equals("7.27")  || apPrists.get(i).getArticle().equals("12.8") || apPrists.get(i).getArticle().equals("12.6") || apPrists.get(i).getArticle().equals("14.16"))
-                {
-                    if(apPrists.get(i).getArticle().equals("5.35.1"))
-                    {
+                if(true){
+                    if (apPrists.get(i).getArticle().equals("12.8") || apPrists.get(i).getArticle().equals("12.26")  ) {
+                        ps = connection.prepareStatement("insert into st_12_8_st_12_6(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else  if (apPrists.get(i).getArticle().equals("6.1.1")  ) {
+                        ps = connection.prepareStatement("insert into st_6_1_1(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apPrists.get(i).getArticle().equals("14.16") && apPrists.get(i).getCact().equals("2.1")) {
+                        ps = connection.prepareStatement("insert into st_14_16(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apPrists.get(i).getArticle().equals("5.35.1")) {
                         ps = connection.prepareStatement("insert into st_5_35_1(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
                     }
-                    else  if(apPrists.get(i).getArticle().equals("7.27"))
-                    {
+                    else if (apPrists.get(i).getArticle().equals("7.27") && apPrists.get(i).getCact().equals("2")) {
                         ps = connection.prepareStatement("insert into st_7_27(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
-
                     }
-                    else  if(apPrists.get(i).getArticle().equals("14.16"))
-                    {
-                        ps = connection.prepareStatement("insert into st_14_16(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
-
+                    else  if (apPrists.get(i).getArticle().equals("14.17.1")) {
+                        ps = connection.prepareStatement("insert into st_14_17_1(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apPrists.get(i).getArticle().equals("20.2")) {
+                        ps = connection.prepareStatement("insert into st_20_2(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apPrists.get(i).getArticle().equals("20.17")) {
+                        ps = connection.prepareStatement("insert into st_20_17(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else  if (apPrists.get(i).getArticle().equals("20.33")) {
+                        ps = connection.prepareStatement("insert into st_20_33(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
                     }
                     else
                     {
-                        ps = connection.prepareStatement("insert into st_12_8_st_12_6(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, pasportn,pasports, datezak, nakaz) values (?,?,?,?,?,?,?,?,?,?,?,?)");
-
+                        continue;
                     }
+
                     ps.setString(1, toUpperCase(apPrists.get(i).getFirstName()));
                     ps.setString(2, toUpperCase(apPrists.get(i).getLastName()));
                     ps.setString(3, toUpperCase(apPrists.get(i).getMiddleName()));
@@ -185,10 +196,6 @@ public class ReadPrist {
                     ps.setString(12, (apPrists.get(i).getNakaz()));
                     ps.executeUpdate();
                 }
-
-
-
-
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {

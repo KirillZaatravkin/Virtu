@@ -292,29 +292,42 @@ public class ReadGibdd {
 
                 ps.executeUpdate();
 
-                if(apGIBDDList.get(i).getArticle().equals("5.35.1") || apGIBDDList.get(i).getArticle().equals("7.27")  || apGIBDDList.get(i).getArticle().equals("12.8") ||apGIBDDList.get(i).getArticle().equals("12.6") || apGIBDDList.get(i).getArticle().equals("14.16"))
+                if(true)
                 {
-                    if(apGIBDDList.get(i).getArticle().equals("5.35.1"))
-                    {
-                        ps = connection.prepareStatement("insert into st_5_35_1(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, vodud, protokoln, nakaz, datezak, datepost) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    if (apGIBDDList.get(i).getArticle().equals("12.8") || apGIBDDList.get(i).getArticle().equals("12.26")  ) {
+                        ps = connection.prepareStatement("insert into st_12_8_st_12_6 (lastname,firstname,middlename,facktaddr,article,cact,birthday, datep, vodud, protokoln, nakaz, datezak, datepost ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
                     }
-                    else  if(apGIBDDList.get(i).getArticle().equals("7.27"))
-                    {
-                        ps = connection.prepareStatement("insert into st_7_27 (firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, vodud, protokoln, nakaz, datezak, datepost) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
+                    else  if (apGIBDDList.get(i).getArticle().equals("6.1.1")  ) {
+                        ps = connection.prepareStatement("insert into st_6_1_1 (lastname,firstname,middlename,facktaddr,article,cact,birthday, datep, vodud, protokoln, nakaz, datezak, datepost ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
                     }
-                    else  if(apGIBDDList.get(i).getArticle().equals("14.16"))
-                    {
-                        ps = connection.prepareStatement("insert into st_14.16 (firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, vodud, protokoln, nakaz, datezak, datepost) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
+                    else if (apGIBDDList.get(i).getArticle().equals("14.16") && apGIBDDList.get(i).getCact().equals("2.1")) {
+                        ps = connection.prepareStatement("insert into st_14_16 (lastname,firstname,middlename,facktaddr,article,cact,birthday, datep, vodud, protokoln, nakaz, datezak, datepost ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apGIBDDList.get(i).getArticle().equals("5.35.1")) {
+                        ps = connection.prepareStatement("insert into st_5_35_1(lastname,firstname,middlename,facktaddr,article,cact,birthday, datep, vodud, protokoln, nakaz, datezak, datepost )values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apGIBDDList.get(i).getArticle().equals("7.27") && apGIBDDList.get(i).getCact().equals("2")) {
+                        ps = connection.prepareStatement("insert into st_7_27(lastname,firstname,middlename,facktaddr,article,cact,birthday, datep, vodud, protokoln, nakaz, datezak, datepost ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else  if (apGIBDDList.get(i).getArticle().equals("14.17.1")) {
+                        ps = connection.prepareStatement("insert into st_14_17_1(lastname,firstname,middlename,facktaddr,article,cact,birthday, datep, vodud, protokoln, nakaz, datezak, datepost ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apGIBDDList.get(i).getArticle().equals("20.2")) {
+                        ps = connection.prepareStatement("insert into st_20_2(lastname,firstname,middlename,facktaddr,article,cact,birthday, datep, vodud, protokoln, nakaz, datezak, datepost )values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apGIBDDList.get(i).getArticle().equals("20.17")) {
+                        ps = connection.prepareStatement("insert into st_20_17(lastname,firstname,middlename,facktaddr,article,cact,birthday, datep, vodud, protokoln, nakaz, datezak, datepost )values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else  if (apGIBDDList.get(i).getArticle().equals("20.33")) {
+                        ps = connection.prepareStatement("insert into st_20_33(lastname,firstname,middlename,facktaddr,article,cact,birthday, datep, vodud, protokoln, nakaz, datezak, datepost ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
                     }
                     else
                     {
-                        ps = connection.prepareStatement("insert into st_12_8_st_12_6(firstname,lastname,middlename, facktaddr, article,cact, birthday, datep, vodud, protokoln, nakaz, datezak, datepost) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
+                        continue;
                     }
-                    ps.setString(1, toUpperCase(apGIBDDList.get(i).getFirstName()));
-                    ps.setString(2, toUpperCase(apGIBDDList.get(i).getLastName()));
+
+                    ps.setString(1, toUpperCase(apGIBDDList.get(i).getLastName()));
+                    ps.setString(2, toUpperCase(apGIBDDList.get(i).getFirstName()));
                     ps.setString(3, toUpperCase(apGIBDDList.get(i).getMiddleName()));
                     ps.setString(4,toUpperCase(apGIBDDList.get(i).getFacktAddr()));
                     ps.setString(5, apGIBDDList.get(i).getArticle());

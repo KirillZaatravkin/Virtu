@@ -13,6 +13,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.List" %>
 <%@ page import="source.system.model.*" %>
+<%@ page import="source.system.dao.SettingsDao" %>
 
 
 <%
@@ -81,6 +82,18 @@
         String sort=request.getParameter("sort");
         article=request.getParameter("article");
         cact=request.getParameter("cact");
+         SettingsDao settingsDao =new SettingsDao();
+            Settings sett=new Settings();
+            sett= settingsDao.getSetting(2);
+
+        int  volume=0;
+        try{
+            volume=Integer.parseInt(request.getParameter("volume"));
+        } catch (NumberFormatException  e)
+        {
+
+        }
+
         String regionMask= request.getParameter("regionMask");
 
         if (cact==""|| cact==null)
@@ -114,43 +127,53 @@
                 <label>Данные для поиска</label>
             </div>
 
-            <div id="left_kol">
+            <div id="left_kol_2">
 
 
                 <div>
-                    <div><label id="lab">Cтатья</label></div>
+                    <a href="#" id="refka" title="Жми для получения справки" onclick="alert('Выбор престепления по статьям'); return false;">Вид преступление</a>
                     <select name="article">
-                        <option value="5.35.1"> 5.35.1</option>
-                        <option value="12.8_12.6">12.6 и 12.8</option>
-                        <option value="7.27">7.27</option>
-                        <option value="14.16">14.16</option>
+                        <option value="12.8_12.6">Управление тр-ным средством в состоянии алкогольного опьянения (12.6 КоАП,  12.8 КоАП)</option>
+                        <option value="6.1.1">Побои (6.1.1 КоАП)</option>
+                        <option value="14.16">Продажа алкоголя несовершеннолетним (14.16 ч.2.1 КоАП)</option>
+                        <option value="5.35.1">Неуплата алиментв (5.35.1 КоАП)</option>
+                        <option value="7.27">Мелкое хищение (7.27 ч.2)</option>
+                        <option value="14.17.1">Незаконная розничная продажа алкогольной и спиртосодержащей пищевой продукции (14.17.1 КоАП)</option>
+                        <option value="20.2">Нарушение порядка собраний , митингов и т.д (20.2 КоАП)</option>
+                        <option value="20.17">Проникновение на охраняемый объект (20.17 КоАП) </option>
+                        <option value="20.33">Деятельность иностранной неправительственной организации (20.33 КоАП)</option>
                     </select>
+
                     <p><a id="ref" href="/statresediv" target="_blank">в списке нет нужной статьи</a></p>
                 </div>
 
 
-                <div>
-                    <div><label label id="lab">Часть </label></div>
-                    <% if (cact.equals("%")) { %>
-                    <input type="text" name="cact">
-                    <% } else {
-                    %>
-                    <input type="text" name=cact value="<%=cact%>">
-                    <%}%>
-                </div>
                 <div>
                     <div><label id="lab">Район/город</label></div>
                     <select name="regionMask"><% for (int i = 0; i < maskList.size(); i++) { %>
                         <option value="<%=maskList.get(i).getMask()%>"><%=maskList.get(i).getTitle()%>
                         </option>
                         <%} %>
-
                     </select>
                 </div>
+
+                <div> <p>   <a href="#" id="refka" title="Жми для получения справки" onclick="alert('Количество преступлений( за указанный период + период, когда действует преюдицию'); return false;">Минимальное количество незакрытых нарушений</a>
+                </p>
+                    <select name="volume">
+                        <option value="1">1</option>
+                        <option selected value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
             </div>
 
             <div id="right_kol">
-                <div><label id="lab">Период совершения АП</label></div>
+                <div>   <div> <p>   <a href="#" id="refka" title="Жми для получения справки" onclick="alert('Период совершения преступления. Следует учитывать, что система сама определяет период преюдиции по каждому преступлению '); return false;">Минимальное количество незакрытых нарушений</a>
+                </p></div>
                 <input type="date" id="dt" onchange="mydate1();"/>
                 <input type="text" name="d1" id="ndt" onclick="mydate();" hidden/>
 
@@ -166,7 +189,8 @@
 
             </div>
         </div>
-        <label>Сгенерировать отчет</label><input type="checkbox" name="doc" checked value="doc">
+            <div> <p>   <a href="#" id="refka" title="Жми для получения справки" onclick="alert('Отчет будет помещен в папку <%=sett.getSettings()%>'); return false;">Сгенерировать отчет</a>
+            </p><input type="checkbox" name="doc" checked value="doc">
         <button id="but_ok" type="submit" name="save" onclick="mydate();">Искать</button>
         <button id="but_ok" type="reset">Очистить поля</button>
     </form>
@@ -202,7 +226,7 @@
                 int kolFace = 0;
                 int kolRes = 0;
 
-                    articleResedivs = ar.FilterStat(article, SQLd1, SQLd2, sort, "found", cact, regionMask);
+                    articleResedivs = ar.FilterStat(article, SQLd1, SQLd2, sort, "found", cact, regionMask, volume);
                     kolNarush =  ar.KolNarush(article, regionMask, SQLd1, SQLd2, false);
                     kolFace = kolFace + ar.KolFace(article, regionMask, SQLd1, SQLd2, false);
                     kolRes = articleResedivs.size();

@@ -140,19 +140,40 @@ public class ReadApOVD {
                 ps.executeUpdate();
 
 
-                if(apOVDList.get(i).getArticle().equals("5.35.1") || apOVDList.get(i).getArticle().equals("7.27")  || apOVDList.get(i).getArticle().equals("12.8") ||apOVDList.get(i).getArticle().equals("12.6") || apOVDList.get(i).getArticle().equals("14.16")) {
-                    if (apOVDList.get(i).getArticle().equals("5.35.1")) {
-                        ps = connection.prepareStatement("insert into st_5_35_1(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak, resaddr ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                    } else if (apOVDList.get(i).getArticle().equals("7.27")) {
-                        ps = connection.prepareStatement("insert into st_7_27(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak , resaddr) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                if(true) {
 
-                    } else if (apOVDList.get(i).getArticle().equals("14.16")) {
-                        ps = connection.prepareStatement("insert into st_14_16 (lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak, resaddr ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-                    } else {
-                        ps = connection.prepareStatement("insert into st_12_8_st_12_6 (lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak , resaddr) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
+                    if (apOVDList.get(i).getArticle().equals("12.8") || apOVDList.get(i).getArticle().equals("12.26")  ) {
+                        ps = connection.prepareStatement("insert into st_12_8_st_12_6 (lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak, resaddr ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
                     }
+                    else  if (apOVDList.get(i).getArticle().equals("6.1.1")  ) {
+                        ps = connection.prepareStatement("insert into st_6_1_1 (lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak, resaddr ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apOVDList.get(i).getArticle().equals("14.16") && apOVDList.get(i).getCact().equals("2.1")) {
+                        ps = connection.prepareStatement("insert into st_14_16 (lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak, resaddr ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apOVDList.get(i).getArticle().equals("5.35.1")) {
+                        ps = connection.prepareStatement("insert into st_5_35_1(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak, resaddr ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apOVDList.get(i).getArticle().equals("7.27") && apOVDList.get(i).getCact().equals("2")) {
+                        ps = connection.prepareStatement("insert into st_7_27(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak , resaddr) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                   else  if (apOVDList.get(i).getArticle().equals("14.17.1")) {
+                        ps = connection.prepareStatement("insert into st_14_17_1(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak , resaddr) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apOVDList.get(i).getArticle().equals("20.2")) {
+                        ps = connection.prepareStatement("insert into st_20_2(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak , resaddr) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else if (apOVDList.get(i).getArticle().equals("20.17")) {
+                        ps = connection.prepareStatement("insert into st_20_17(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak , resaddr) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                   else  if (apOVDList.get(i).getArticle().equals("20.33")) {
+                        ps = connection.prepareStatement("insert into st_20_33(lastname,firstname,middlename,facktaddr,article,birthday, datep,pasports,pasportn,cact,organ,datezak , resaddr) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    }
+                    else
+                    {
+                        continue;
+                    }
+
                     ps.setString(1, toUpperCase(apOVDList.get(i).getFirstName()));
                     ps.setString(2, toUpperCase(apOVDList.get(i).getLastName()));
                     ps.setString(3, toUpperCase(apOVDList.get(i).getMiddleName()));

@@ -22,7 +22,7 @@
 }
 
 #kol {
-    width: 500px;
+    width: auto;
     height: 300px;
     border: inset;
     border-top:1px solid rgba(255, 255, 255, 0);
@@ -30,22 +30,30 @@
     border-left:1px solid #666;
     border-right:1px solid #999;
 }
+
+
+
 #left_kol{
     float: left;
     width: 200px;
 
 }
 
+#left_kol_2{
+    float: left;
+    width: 650px;
+}
+
 #right_kol{
     float: right;
     width: 200px;
-
 }
 
 #navbar li {
     border-left: 10px solid #666;
     border-bottom: 1px solid #666;
 }
+
 #navbar a {
     background-color: #949494;
     color: #2b009e;
@@ -273,6 +281,15 @@
 
 #ref:hover{
     color: #d0d0d0;
+}
+
+#refka {
+
+    text-decoration:none;
+    color: #2b009e;
+    font-size: 15px;
+    font-family: "Arial Black";
+    font-style: oblique;
 }
 
 

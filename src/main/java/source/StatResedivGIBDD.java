@@ -35,6 +35,12 @@ public class StatResedivGIBDD {
         PreparedStatement statement = null;
         ResultSet rs = null;
 
+       // TODO
+                if (!cact.equals("%"))
+                {
+                    cact=" "+cact;
+                }
+
         try {
             if (interval.equals("found")) {
                 if (article == null) {
