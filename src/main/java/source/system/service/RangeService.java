@@ -2,8 +2,10 @@ package source.system.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.plugin.javascript.navig.Array;
 
 import javax.xml.soap.SAAJResult;
+import java.util.ArrayList;
 
 /**
  * Created by кирюха on 11.07.2019.
@@ -25,9 +27,9 @@ public class RangeService {
 
     public int convertIpToInt(int[] addr) {
 
-
         return  addr[0]*256*256*256+addr[1]*256*256+addr[2]*256+addr[3];
     }
+
 
     public String convertIntToIp(int addr) {
 
@@ -39,21 +41,16 @@ public class RangeService {
     }
 
 
-    public String[] getRange(String addres1, String addres2) {
+    public ArrayList<String> getRange(String addres1, String addres2) {
 
         int[] addr1=splitIp(addres1);
         int[] addr2=splitIp(addres2);
         int a1 = convertIpToInt(addr1);
         int a2 = convertIpToInt(addr2);
-        String[] result = new String[a2-a1];
-
-        int i = 0;
-        while (a1 != a2) {
+        ArrayList<String> result = new ArrayList<String>();
+        while (a1 != a2-1) {
             a1++;
-
-            result[i] = convertIntToIp(a1);
-            System.out.println( result[i]);
-            i++;
+            result.add(convertIntToIp(a1));
         }
         return result;
     }

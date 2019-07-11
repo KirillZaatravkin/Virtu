@@ -21,6 +21,8 @@ public class Controller {
 
         if(addr1!=null && addr2!=null) {
             model.addAttribute("range", rangeService.getRange(addr1, addr2));
+            model.addAttribute("addr1",addr1);
+            model.addAttribute("addr2", addr2);
         }
         return "/index";
 
