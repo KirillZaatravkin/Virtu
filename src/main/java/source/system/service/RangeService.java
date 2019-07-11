@@ -15,6 +15,34 @@ import java.util.ArrayList;
 public class RangeService {
 
 
+
+    public boolean validIp(String addr) {
+        try {
+            if ( addr == null || addr.isEmpty() ) {
+                return false;
+            }
+
+            String[] parts = addr.split( "\\." );
+            if ( parts.length != 4 ) {
+                return false;
+            }
+
+            for ( String s : parts ) {
+                int i = Integer.parseInt( s );
+                if ( (i < 0) || (i > 255) ) {
+                    return false;
+                }
+            }
+            if ( addr.endsWith(".") ) {
+                return false;
+            }
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
+
     public int[] splitIp(String addr) {
 
         String[] resuit = addr.split("\\.");
@@ -23,6 +51,9 @@ public class RangeService {
             resultInt[i] = Integer.valueOf(resuit[i]);
         }
         return resultInt;
+
+
+
     }
 
     public int convertIpToInt(int[] addr) {

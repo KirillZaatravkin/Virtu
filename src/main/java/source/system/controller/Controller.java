@@ -20,6 +20,23 @@ public class Controller {
     public String u(@RequestParam( value = "addr1",required=false) String addr1, @RequestParam(value = "addr2",required=false) String addr2, Model model) {
 
         if(addr1!=null && addr2!=null) {
+
+            if(rangeService.validIp(addr1)==false)
+            {
+                model.addAttribute("errors","Адрес 1 задан неправильно");
+                return "/index";
+            }
+            if(rangeService.validIp(addr2)==false)
+            {
+                model.addAttribute("errors","Адрес 2 задан неправильно");
+                return "/index";
+            }
+
+            if(rangeService.convertIpToInt(rangeService.splitIp(addr1))>rangeService.convertIpToInt(rangeService.splitIp(addr2)))
+            {
+               model.addAttribute("errors","неправильный диапозон: а1>а2");
+                return "/index";
+            }
             model.addAttribute("range", rangeService.getRange(addr1, addr2));
             model.addAttribute("addr1",addr1);
             model.addAttribute("addr2", addr2);
@@ -27,9 +44,5 @@ public class Controller {
         return "/index";
 
     }
-
-
-
-
 }
 
