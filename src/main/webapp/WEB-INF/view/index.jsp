@@ -15,7 +15,7 @@
 
 <div id="post">
 
-    <a style="background-color: #e9c109" href="/" class="c">Задание 1</a>
+    <a style="background-color: #e9c109" href="/"  class="c">Задание 1</a>
 
 
     <p></p> <label ID="lab_name">Введите данные:</label>
