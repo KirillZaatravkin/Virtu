@@ -1,0 +1,8 @@
+<component name="libraryTable">
+  <library name="org.thymeleaf.extras:thymeleaf-extras-springsecurity4:Release" type="repository">
+    <properties maven-id="org.thymeleaf.extras:thymeleaf-extras-springsecurity4:RELEASE" />
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
