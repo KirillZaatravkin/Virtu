@@ -7,18 +7,12 @@ import sun.plugin.javascript.navig.Array;
 import javax.xml.soap.SAAJResult;
 import java.util.ArrayList;
 
-/**
- * Created by кирюха on 11.07.2019.
- */
-
 @Service
 public class RangeService {
 
-
-
     public boolean validIp(String addr) {
         try {
-            if ( addr == null || addr.isEmpty() ) {
+            if  ( addr == null || addr.isEmpty() ) {
                 return false;
             }
 
@@ -44,25 +38,25 @@ public class RangeService {
 
 
     public int[] splitIp(String addr) {
-
         String[] resuit = addr.split("\\.");
         int[] resultInt = new int[4];
         for (int i = 0; i < 4; i++) {
             resultInt[i] = Integer.valueOf(resuit[i]);
         }
         return resultInt;
-
-
-
     }
 
     public int convertIpToInt(int[] addr) {
-
-        return  addr[0]*256*256*256+addr[1]*256*256+addr[2]*256+addr[3];
+        int result = 0;
+        for (int i = 0; i < 4; i++) {
+            result  =(int) (result + addr[i] * Math.pow(256, i));
+        }
+        return result;
     }
 
 
     public String convertIntToIp(int addr) {
+
 
         int number0 = (int) (addr / Math.pow(256, 3));
         int number1 = (int) ((addr - number0 * Math.pow(256, 3)) / Math.pow(256, 2));
@@ -73,7 +67,6 @@ public class RangeService {
 
 
     public ArrayList<String> getRange(String addres1, String addres2) {
-
         int[] addr1=splitIp(addres1);
         int[] addr2=splitIp(addres2);
         int a1 = convertIpToInt(addr1);
