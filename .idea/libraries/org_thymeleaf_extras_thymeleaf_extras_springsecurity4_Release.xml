@@ -2,7 +2,6 @@
   <library name="org.thymeleaf.extras:thymeleaf-extras-springsecurity4:Release" type="repository">
     <properties maven-id="org.thymeleaf.extras:thymeleaf-extras-springsecurity4:RELEASE" />
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -16,8 +15,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -31,8 +28,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -46,8 +41,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -61,8 +54,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -76,8 +67,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -91,8 +80,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -106,8 +93,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -121,8 +106,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -136,8 +119,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -151,8 +132,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -166,8 +145,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -181,8 +158,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -196,8 +171,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -211,8 +184,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -226,8 +197,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -241,8 +210,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -256,8 +223,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -271,8 +236,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -286,8 +249,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -301,8 +262,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -316,8 +275,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -331,8 +288,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -346,8 +301,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -361,8 +314,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -376,8 +327,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -391,8 +340,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -406,8 +353,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -421,8 +366,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.3.RELEASE/thymeleaf-extras-springsecurity4-3.0.3.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -437,7 +380,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.3.RELEASE/thymeleaf-extras-springsecurity4-3.0.3.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
@@ -452,7 +394,36 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.3.RELEASE/thymeleaf-extras-springsecurity4-3.0.3.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.1.6.RELEASE/spring-beans-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.1.6.RELEASE/spring-core-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.1.6.RELEASE/spring-context-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/4.1.6.RELEASE/spring-expression-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.0.0.RELEASE/spring-security-web-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.1.6.RELEASE/spring-web-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.0.0.RELEASE/spring-security-config-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.4.RELEASE/thymeleaf-extras-springsecurity4-3.0.4.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.1.6.RELEASE/spring-beans-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.1.6.RELEASE/spring-core-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.1.6.RELEASE/spring-context-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/4.1.6.RELEASE/spring-expression-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.0.0.RELEASE/spring-security-web-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.1.6.RELEASE/spring-web-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.0.0.RELEASE/spring-security-config-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-acl/4.0.0.RELEASE/spring-security-acl-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.4.RELEASE/thymeleaf-extras-springsecurity4-3.0.4.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.0.0.RELEASE/spring-security-core-4.0.0.RELEASE.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/" />

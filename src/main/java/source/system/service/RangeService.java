@@ -1,10 +1,6 @@
 package source.system.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.plugin.javascript.navig.Array;
-
-import javax.xml.soap.SAAJResult;
 import java.util.ArrayList;
 
 @Service
@@ -56,8 +52,6 @@ public class RangeService {
 
 
     public String convertIntToIp(int addr) {
-
-
         int number0 = (int) (addr / Math.pow(256, 3));
         int number1 = (int) ((addr - number0 * Math.pow(256, 3)) / Math.pow(256, 2));
         int number2 = (int) ((addr - number0 * Math.pow(256, 3) - number1 * Math.pow(256, 2)) / 256);
