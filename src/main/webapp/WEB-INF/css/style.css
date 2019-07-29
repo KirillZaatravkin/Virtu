@@ -2,40 +2,43 @@
     font-family: verdana;
 }
 
-#header {
-
-    background-color: #0023ff;
-    overflow: hidden;
 
 
-}
-
-
-
-#kol_compare {
-    width: 1700px;
+#block {
+    width: 1000px;
+    border: groove;
+    border-color: #aa0000;
+    border-width: 1px;
 
 }
 
-#left_kol_compare{
+#left_block{
     float: left;
-    width: 800px;
-    overflow-y: scroll;
-    height: 1500px;
+    width: 500px;
+    height: 200px;
+
 
 }
 
-#right_kol_compare{
+#right_block{
     float: right;
-    width: 800px;
-    overflow-y: scroll;
-    height: 1500px;
+    width:500px;
+    height:200px;
 }
+
+#button_block{
+    float: right;
+    width: 500px;
+    height: 50px;
+    margin-bottom: 12px;
+}
+
+
+
 
 #post {
     float: right;
     position: absolute;
-
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 10px;
     left: 100px;
@@ -61,19 +64,16 @@
 
 #textar{
     font-family:"Times New Roman";
-    font-size: 12px;
-    color: #2b2b2b;
-    width: 1200px;
-}
+    font-size: 18px;
+    color: #b80014;
+    font-style: oblique;
 
-#logpass
-{
-    border: 4px double black;
-    width: 1200px;
 }
 
 
-#lab2{
+
+
+#error{
     color: #ff853b;
     font-size: 15px;
     font-family: "Arial Black";

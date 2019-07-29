@@ -5,7 +5,6 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-
     <style> <%@include file="../css/style.css"%> </style>
 
 </head>
@@ -14,9 +13,6 @@
 <body>
 
 <div id="post">
-
-    <a style="background-color: #e9c109" href="/"  class="c">Задание 1</a>
-    <a style="background-color: #e0ddd8" href="/book" class="c">Задание 2</a>
 
     <p></p> <label ID="lab_name">Введите данные:</label>
     <form action="/" method="post">
@@ -33,7 +29,7 @@
             </div>
         </c:forEach>
     </div>
-    <p><c:out value="${errors}"/></p>
+    <p><c:out value="${errors}"/>  </p>
 
 </body>
 </html>
