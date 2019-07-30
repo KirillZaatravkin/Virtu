@@ -136,7 +136,6 @@ public class ContractController {
             error = 1;
         }
 
-
         SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
         try {
             SQLdate1 = new java.sql.Date(format.parse(date1).getTime());
@@ -157,7 +156,7 @@ public class ContractController {
                     Contract contract = new Contract(year, sum, sq, number, property, SQLdate1, SQLdate2, new Date(System.currentTimeMillis()), contractService.calcPrize(interval, sum, year, property, sq), new Date(System.currentTimeMillis()), land, oblast, raion, punkt, street, house, korpus, stroenie, room);
                     contract.setInsured(insuredsService.findId(idIns));
                     contractService.saveContract(contract);
-                    return "redirect:/index";
+                    return "redirect:/";
                 } else {
 
                     Contract contract = contractService.findId(Integer.valueOf(id));
@@ -181,7 +180,7 @@ public class ContractController {
                     contract.setStreet(street);
                     contract.setYear(year);
                     contractService.updateContract(contract);
-                    return "redirect:/index";
+                    return "redirect:/";
                 }
             }
         } else {

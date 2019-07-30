@@ -52,7 +52,7 @@
         <div id="block">
             <div id="left_block">
                 <p>Страховая сумма<input type="text" name="sum" value="${sum}">
-                    ₽ <label id="error"><c:out value="${errorSum}"/></label></p>
+                    <label id="error"><c:out value="${errorSum}"/></label></p>
                 <div>Тип недвижимости
                     <select name="property">
                         <c:forEach items="${propertyList}" var="pr">
