@@ -216,7 +216,7 @@ public class ContractController {
 
     }
 
-    @RequestMapping(value = "/index", method = {RequestMethod.GET})
+    @RequestMapping(value = "/", method = {RequestMethod.GET})
     public String dfdeo(Model model) {
 
 
