@@ -15,7 +15,8 @@ import java.util.List;
 public class InsuredsDAO {
 
     public List<Insureds> findAll() {
-        String hql = "FROM source.system.model.Insureds";
+       String hql = "FROM source.system.model.Insureds as ins order by ins.id desc";
+       // String hql = "FROM source.system.model.Insureds";
         return (List<Insureds>) HibernateSession.getSessionFactory().openSession().createQuery(hql).list();
     }
 
@@ -29,6 +30,17 @@ public class InsuredsDAO {
         return query.list();
 
     }
+    public Insureds findId(int id) {
+        Session session = HibernateSession.getSessionFactory().openSession();
+        return session.get(Insureds.class,id);
+    }
 
+    public void save(Insureds insured){
+        Session session = HibernateSession.getSessionFactory().openSession();
+        Transaction tx1 = session.beginTransaction();
+        session.save(insured);
+        tx1.commit();
+        session.close();
+    }
 
 }

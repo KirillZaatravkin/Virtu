@@ -14,16 +14,13 @@ public class Property {
     @Column
     private String title;
 
-    @OneToMany(mappedBy = "proper", cascade = CascadeType.ALL)
-    private List<Contract> contracts;
-
     public Property() {
 
     }
 
     public Property(String title) {
         this.title = title;
-        contracts = new ArrayList<>();
+
 
     }
 
@@ -44,11 +41,4 @@ public class Property {
     }
 
 
-    public List<Contract> getContracts() {
-        return contracts;
-    }
-
-    public void setContracts(List<Contract> contracts) {
-        this.contracts = contracts;
-    }
 }

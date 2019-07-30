@@ -13,7 +13,7 @@ public class ContractService {
     @Autowired
     private ContractDAO contractDAO;
 
-    public double calcPrize(int interval, double sum, int year, int property, int sq) {
+    public double calcPrize(int interval, int sum, int year, int property, int sq) {
 
         double kTN = 1.7;
         switch (property) {
@@ -43,8 +43,13 @@ public class ContractService {
         contractDAO.save(contract);
     }
 
+
     public void updateContract(Contract contract) {
         contractDAO.update(contract);
+    }
+
+    public Contract findId(int id) {
+        return contractDAO.findId(id);
     }
 
     public List<Contract> findAllContracts(){

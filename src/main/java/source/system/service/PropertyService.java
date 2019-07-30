@@ -15,4 +15,8 @@ public class PropertyService {
     public List<Property> findAllPropertys(){
         return propertyDAO.findAll();
     }
+
+    public Property findId(int id) {
+        return propertyDAO.findId(id);
+    }
 }

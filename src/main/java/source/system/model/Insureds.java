@@ -27,8 +27,9 @@ public class Insureds {
     @Column(name = "pasport_n")
     private String pasportN;
 
-    @OneToMany(mappedBy = "insured", cascade = CascadeType.ALL)
-    private List<Contract> contracts;
+    @OneToMany(mappedBy = "insureds",  cascade = CascadeType.ALL)
+    private  List<Contract> contracts;
+
 
     public  Insureds () {
 
@@ -91,11 +92,5 @@ public class Insureds {
         this.pasportN = pasportN;
     }
 
-    public List<Contract> getContracts() {
-        return contracts;
-    }
 
-    public void setContracts(List<Contract> contracts) {
-        this.contracts = contracts;
-    }
 }

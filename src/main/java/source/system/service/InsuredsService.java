@@ -23,4 +23,11 @@ public class InsuredsService {
     public List<Insureds> findInsureds(String firstName, String lastName, String middleName) {
         return insuredsDAO.findInsureds(firstName, lastName, middleName);
     }
+
+    public Insureds findId(int id) {
+        return insuredsDAO.findId(id);
+    }
+    public void saveInsured(Insureds insured) {
+        insuredsDAO.save(insured);
+    }
 }

@@ -34,11 +34,13 @@
             input = document.getElementById('idIns');
             idIns.value = idIn;
         }
-
-
-
+        function resultCloseRedirect() {
+            children_window.close();
+            window.location.href = "/insuredadd";
+        }
 
     </script>
+
 </head>
 <body>
 
@@ -63,10 +65,12 @@
                     </select>
                 </div>
                 <p>Год постройки
-                    <input type="text" name="year" value="${year}"><label id="error"><c:out value="${errorYear}"/></label>
+                    <input type="text" name="year" value="${year}"><label id="error"><c:out
+                            value="${errorYear}"/></label>
                 </p>
                 <p>Площадь
-                    <input type="text" name="sq" value="${sq}"> м.кв.<label id="error"><c:out value="${errorSq}"/></label>
+                    <input type="text" name="sq" value="${sq}"> м.кв.<label id="error"><c:out
+                            value="${errorSq}"/></label>
                 </p>
             </div>
 
@@ -90,8 +94,8 @@
 
 
         <div id="block">
-            <div>Страхователь:
-                <input type="text" readonly id="fio" name="fio" value="${fio}">
+            <div><p>Страхователь:</p>
+                ФИО<input type="text" readonly id="fio" name="fio" value="${fio}">
                 <input type="hidden" id="idIns" name="idIns" value="${idIns}">
                 <label id="error"><c:out value="${errorIns}"/></label>
             </div>
@@ -109,10 +113,10 @@
             Дом:<input type="text" name="house" value="${house}">
             Квартира:<input type="text" name="room" value="${room}">
         </div>
+        <input type="hidden" id="id" name="id" value="${id}">
         <button id="but_ok" type="submit" value="save" name="save">Cохранить</button>
         <input type="reset" value="Очистить поля формы">
     </form>
-
 </div>
 </body>
 </html>

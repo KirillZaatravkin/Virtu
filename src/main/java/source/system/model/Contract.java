@@ -13,7 +13,7 @@ public class Contract {
     private int id;
 
     private int year;
-    private double sum;
+    private int sum;
     private int sq;
     private Date date1;
     private Date date2;
@@ -33,24 +33,27 @@ public class Contract {
     private String stroenie;
     private String room;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "property_id")
-    private Property proper;
+    @Column(name = "property_id")
+    private int proper;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne
     @JoinColumn(name = "insured_id")
-    private Insureds insured;
+    private Insureds insureds;
 
 
-    public Contract(int i, int i1, Date d, Date date, Date d1, Date date1, int i2, String s, String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8) {
+
+
+
+    public Contract(){
 
     }
 
-    public Contract(int year, float sum, int sq, String number, Date date1, Date date2, Date dateCalc, double prize, Date dateConc, String land, String oblast, String raion, String punkt, String street, String house, String korpus, String stroenie, String room) {
+    public Contract(int year, int sum, int sq, String number, int proper,   Date date1, Date date2, Date dateCalc, double prize, Date dateConc, String land, String oblast, String raion, String punkt, String street, String house, String korpus, String stroenie, String room) {
         this.year = year;
         this.sum = sum;
         this.sq = sq;
-        this.number=number;
+        this.number = number;
         this.date1 = date1;
         this.date2 = date2;
         this.dateCalc = dateCalc;
@@ -65,6 +68,8 @@ public class Contract {
         this.korpus = korpus;
         this.stroenie = stroenie;
         this.room = room;
+        this.proper=proper;
+
     }
 
     public int getId() {
@@ -87,7 +92,7 @@ public class Contract {
         return sum;
     }
 
-    public void setSum(float sum) {
+    public void setSum(int sum) {
         this.sum = sum;
     }
 
@@ -215,6 +220,25 @@ public class Contract {
         return room;
     }
 
+    public void setPrize(double prize) {
+        this.prize = prize;
+    }
+
+    public int getProper() {
+        return proper;
+    }
+
+    public void setProper(int proper) {
+        this.proper = proper;
+    }
+
+    public Insureds getInsured() {
+        return insureds;
+    }
+
+    public void setInsured(Insureds insured) {
+        this.insureds = insured;
+    }
     public void setRoom(String room) {
         this.room = room;
     }

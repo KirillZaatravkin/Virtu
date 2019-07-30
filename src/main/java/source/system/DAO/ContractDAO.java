@@ -31,4 +31,9 @@ public class ContractDAO {
         String hql = "FROM source.system.model.Contract";
         return (List<Contract>) HibernateSession.getSessionFactory().openSession().createQuery(hql).list();
     }
+
+    public Contract findId(int id) {
+        Session session = HibernateSession.getSessionFactory().openSession();
+        return session.get(Contract.class,id);
+    }
 }
