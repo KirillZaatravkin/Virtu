@@ -140,12 +140,6 @@ public class ContractController {
 
     }
 
-    @RequestMapping(value = "/contract", method = {RequestMethod.GET})
-    public String ui(Model model) {
-        model.addAttribute("propertyList", propertyService.findAllPropertys());
-        return "/contract";
-
-    }
 
 }
 
